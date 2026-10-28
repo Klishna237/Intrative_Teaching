@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-SOHO Security and Perimeter Architecture (Part of Unit 5):
+SOHO Security and Perimeter Architecture (Security & Perimeter Architecture):
 - Article it5-soho-gateway: Converged SOHO Gateway Architecture & DHCP DORA Handshake
 - Article it5-nat-pat: NAT vs PAT (NAT Overload) Socket Translation State Tables
 - Article it5-wifi-security: Wireless Security Evolution: WEP, WPA2-PSK 4-Way Handshake vs WPA3 SAE
@@ -12,7 +12,7 @@ IT_SOHO_HTML = """
 <article class="doc-page" id="it5-soho-gateway">
   <div class="page-header-meta">
     <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 05 • Page 14</span>
+    <span class="meta-tag">SOHO Security • Page 14</span>
     <span class="meta-tag">Bloom's: Understand / Apply</span>
   </div>
 
@@ -56,7 +56,7 @@ IT_SOHO_HTML = """
 
   <div class="page-footer-meta">
     <span>Next: NAT & PAT Socket Translation</span>
-    <span>Unit 05 • Page 14</span>
+    <span>SOHO Security • Page 14</span>
   </div>
 </article>
 
@@ -64,7 +64,7 @@ IT_SOHO_HTML = """
 <article class="doc-page" id="it5-nat-pat">
   <div class="page-header-meta">
     <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 05 • Page 15</span>
+    <span class="meta-tag">SOHO Security • Page 15</span>
     <span class="meta-tag">Bloom's: Analyze / Evaluate</span>
   </div>
 
@@ -118,7 +118,7 @@ IT_SOHO_HTML = """
 
   <div class="page-footer-meta">
     <span>Next: Wireless Security Evolution</span>
-    <span>Unit 05 • Page 15</span>
+    <span>SOHO Security • Page 15</span>
   </div>
 </article>
 
@@ -126,7 +126,7 @@ IT_SOHO_HTML = """
 <article class="doc-page" id="it5-wifi-security">
   <div class="page-header-meta">
     <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 05 • Page 16</span>
+    <span class="meta-tag">SOHO Security • Page 16</span>
     <span class="meta-tag">Bloom's: Understand / Evaluate</span>
   </div>
 
@@ -186,7 +186,7 @@ IT_SOHO_HTML = """
 
   <div class="page-footer-meta">
     <span>Next: Firewalls, Port Forwarding & DMZ</span>
-    <span>Unit 05 • Page 16</span>
+    <span>SOHO Security • Page 16</span>
   </div>
 </article>
 
@@ -194,7 +194,7 @@ IT_SOHO_HTML = """
 <article class="doc-page" id="it5-firewall-dmz">
   <div class="page-header-meta">
     <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 05 • Page 17</span>
+    <span class="meta-tag">SOHO Security • Page 17</span>
     <span class="meta-tag">Bloom's: Apply / Analyze</span>
   </div>
 
@@ -240,8 +240,8 @@ IT_SOHO_HTML = """
   </div>
 
   <div class="page-footer-meta">
-    <span>Unit 05 SOHO Security Complete</span>
-    <span>Unit 05 • Page 17</span>
+    <span>SOHO Gateway Security Complete</span>
+    <span>SOHO Security • Page 17</span>
   </div>
 </article>
 """

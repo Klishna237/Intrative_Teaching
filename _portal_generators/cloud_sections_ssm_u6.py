@@ -877,9 +877,16 @@ CLOUD_UNIT6_HTML = """
           <li>Attach the following Service Control Policy (SCP) at the root of the AWS Organization:</li>
         </ul>
         <div class="terminal-block">
-          <div class="terminal-bar">
-            <div class="term-dots"><span class="term-dot dot-red"></span><span class="term-dot dot-yellow"></span><span class="term-dot dot-green"></span></div>
-            <div class="term-title">AWS Organizations SCP • Region Guardrail</div>
+          <div class="terminal-header">
+            <div class="terminal-header-left">
+              <span class="term-dot dot-red"></span>
+              <span class="term-dot dot-yellow"></span>
+              <span class="term-dot dot-green"></span>
+              <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> AWS Organizations SCP • Region Guardrail</span>
+            </div>
+            <div class="terminal-actions">
+              <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+            </div>
           </div>
           <pre class="code-pre"><code>{
   "Version": "2012-10-17",

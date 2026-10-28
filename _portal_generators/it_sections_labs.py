@@ -1,296 +1,653 @@
 # -*- coding: utf-8 -*-
 """
-Unit 6: Laboratory Manual (10 Practical Experiments)
-Formatted in Engineering Standard .doc-page style with tables, callouts, and viva questions.
+IT Fundamentals Portal - Practical Laboratory Manual (Master Gold Standard)
+10 Comprehensive Hands-On Experiments with Terminal Windows, Verification, and Viva Questions
+Exact layout, classes, and styling matching Cloud and Server administration portals.
 """
 
-IT_LABS_HTML = """
-<!-- ==========================================================================
-     UNIT 06: HANDS-ON LABORATORY PRACTICUM (10 EXPERIMENTS)
-     ========================================================================== -->
-
+IT_LABS_HTML = r"""
+<!-- ===================================================================
+     HANDS-ON LABORATORY MANUAL: 10 PRACTICAL EXPERIMENTS
+     =================================================================== -->
 <article class="doc-page" id="it-labs">
-  <div class="page-header-meta">
-    <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 06 • Practical Manual</span>
-    <span class="meta-tag">10 Experiments • Syllabus Mapped</span>
+  <header class="doc-page-header">
+    <span class="page-header-meta">Curriculum Lab Manual • Hands-On Practicals</span>
+    <h2 class="section-title"><span class="sec-num">LAB.1</span> IT Fundamentals Laboratory Manual: 10 Rigorous Hands-on Practicals</h2>
+    <p class="lead-para">
+      This practical lab manual provides end-to-end, reproducible engineering procedures conforming to the Department of Computer Science &amp; Engineering IT Fundamentals (CSC104) syllabus. Each experiment includes exact terminal commands, hardware inspection procedures, expected execution outputs, troubleshooting scenarios, and oral examination (Viva Voce) question sets.
+    </p>
+  </header>
+
+  <div class="callout callout-deep">
+    <div class="callout-label"><i data-lucide="terminal"></i> LABORATORY PREREQUISITES &amp; ENVIRONMENT SETUP</div>
+    <div class="callout-body">
+      Ensure you have access to a laboratory workstation running Windows 10/11 Pro (or Linux dual-boot) with administrative privileges, an ESD anti-static wrist strap, #2 Phillips screwdriver, multimeters, patch cables, SOHO wireless router, network printer, and Oracle VM VirtualBox installed.
+    </div>
   </div>
 
-  <h2 class="section-title">
-    <span class="sec-num">45.</span> Complete Hands-On Engineering Laboratory Practicum
-  </h2>
-
-  <p class="lead-para">
-    Rigorous step-by-step engineering procedures, safety precautions, hardware tooling, terminal execution commands, and viva voce assessment sets for all 10 laboratory experiments mandated by Course Syllabus.
-  </p>
-
-  <div class="subj-grid">
-    <!-- Lab 01 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 01</span> PC Disassembly, Motherboard Standoff Verification &amp; Component Reassembly</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Safely disassemble a modular desktop PC down to the bare chassis, verify brass standoff physical grounding alignment, inspect motherboard trace integrity, and reassemble to a clean successful POST.</p>
-        <p><strong>Required Tooling:</strong> Magnetic tip #2 Phillips screwdriver, anti-static ESD wrist strap with grounding alligator clip, thermal paste (5+ W/mK), isopropyl alcohol 99%, lint-free wipes.</p>
-        <p><strong>Procedure &amp; Safety Protocol:</strong></p>
-        <ol>
-          <li>Disconnect AC power cord; press the chassis power switch for 10 seconds to fully discharge SMPS bulk filter capacitors.</li>
-          <li>Affix ESD wrist strap to an unpainted metal chassis frame (ensuring zero potential difference).</li>
-          <li>Disconnect 24-pin ATX power and 8-pin EPS12V CPU harness with latch depressed; remove discrete GPU PCIe bracket screws.</li>
-          <li>Unscrew CPU cooler mounting brackets diagonally in an alternating "X" pattern (half-turn increments) to relieve uneven mechanical tension on the CPU die.</li>
-          <li>Inspect chassis tray: verify that exactly 9 standoffs correspond to standard ATX mounting holes. Remove any rogue standoffs under non-drilled PCB traces to eliminate short-circuit hazards.</li>
-          <li>Reassemble: clean old thermal paste using 99% IPA, apply pea-sized bead of thermal paste, reinstall cooler, reconnect all power rails, and verify POST beep/LED.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>Why must cooler screws be loosened in an alternating X pattern?</em> To prevent localized mechanical torque from cracking fragile silicon corners or bending socket pins.</p>
-      </div>
+  <!-- LAB 1 -->
+  <div class="subj-card revealed" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 01</div>
+      <div class="subj-title">Identification of Computer Hardware Components &amp; Motherboard Subsystems</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
     </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Safely inspect and identify desktop motherboard form factors (ATX, Micro-ATX, Mini-ITX), CPU sockets (LGA1700, AM5), DDR4/DDR5 DIMM slots, PCIe expansion risers, NVMe M.2 interfaces, SMPS power rails, and front-panel pinouts.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> ESD wrist strap, #2 Phillips non-magnetic screwdriver, modular desktop workstation, multi-meter, and component trays.</p>
 
-    <!-- Lab 02 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 02</span> BIOS / UEFI Setup, NVRAM Boot Priority Configuration &amp; Hardware Health Monitoring</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Access UEFI firmware, configure boot order, enable XMP/EXPO memory profiles, configure fan pulse-width modulation (PWM) thermal curves, and verify voltage rail health.</p>
-        <p><strong>Procedure:</strong></p>
-        <ol>
-          <li>Power on system and press the dedicated firmware interrupt key (`DEL` or `F2`) repeatedly before Windows Boot Manager loads.</li>
-          <li>Navigate to <em>Advanced Frequency Settings</em>: enable XMP (Extreme Memory Profile) Profile 1 to load certified memory timings (e.g. DDR4-3600 CL16 @ 1.35V).</li>
-          <li>Navigate to <em>Hardware Health Monitor</em>: observe real-time sensor telemetry. Verify:
-            <br>&bull; CPU Core Vcore: Between 1.05V and 1.30V
-            <br>&bull; +12V Rail: 11.90V to 12.15V (Within strict &plusmn;5% tolerance)
-            <br>&bull; CPU Package Temperature: &le;42&deg;C at idle
-          </li>
-          <li>Navigate to <em>Boot Options</em>: set UEFI USB Drive as Boot Option #1, NVMe SSD as Boot Option #2. Disable legacy CSM (Compatibility Support Module) to enforce pure UEFI GPT boot.</li>
-          <li>Save changes to NVRAM (`F10`) and restart.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>What is the architectural difference between UEFI and legacy BIOS?</em> BIOS executes in 16-bit real mode and is limited to 2.2TB MBR disks; UEFI executes in 32/64-bit protected mode, boots from GPT partitions up to 9.4 ZB, and incorporates cryptographic Secure Boot.</p>
-      </div>
-    </div>
-
-    <!-- Lab 03 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 03</span> Operating System Installation &amp; Storage Partitioning: MBR vs GPT Initialization</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Initialize a raw NVMe SSD using modern GUID Partition Table (GPT) architecture, create standard UEFI partitions via `diskpart`, and install Windows 11 Enterprise.</p>
-        <p><strong>Terminal Procedure (`diskpart` via Shift+F10 in Windows Setup):</strong></p>
-        <div class="terminal-block">
-          <div class="terminal-bar">
-            <div class="term-dots"><span class="term-dot dot-red"></span><span class="term-dot dot-yellow"></span><span class="term-dot dot-green"></span></div>
-            <div class="term-title">DISKPART Partitioning Shell</div>
-            <div class="term-actions">
-              <button class="btn-term-action btn-copy-code" type="button"><i data-lucide="copy"></i><span>Copy</span></button>
-            </div>
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> PowerShell • Hardware Subsystem Discovery</span>
           </div>
-          <pre class="code-pre"><code>diskpart
-list disk
-select disk 0
-clean
-convert gpt
-create partition efi size=100
-format quick fs=fat32 label="System"
-create partition msr size=16
-create partition primary
-format quick fs=ntfs label="Windows"
-exit</code></pre>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
         </div>
-        <p><strong>Viva Assessment:</strong> <em>Why must the EFI System Partition (ESP) be formatted as FAT32 rather than NTFS?</em> The UEFI specification defines FAT12/16/32 as the mandatory filesystem drivers embedded in motherboard ROM. UEFI cannot natively read NTFS without proprietary third-party EFI drivers.</p>
-      </div>
-    </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment"># 1. Query motherboard manufacturer, chipset product model, and firmware version</span>
+Get-CimInstance Win32_BaseBoard | Select-Object Manufacturer, Product, SerialNumber, Version
 
-    <!-- Lab 04 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 04</span> Structured Cabling: Straight-Through &amp; Crossover RJ-45 Cable Crimping &amp; Certification</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Strip, untwist, sequence, and crimp Cat 6 UTP cable into 8P8C modular RJ-45 plugs following TIA/EIA T568A and T568B pinout standards; verify pin-to-pin electrical continuity using a hardware cable tester.</p>
-        <p><strong>Procedure:</strong></p>
-        <ol>
-          <li>Strip 1.25 inches of outer PVC jacket using a rotary cable stripper, being careful not to nick the interior copper insulation.</li>
-          <li>Cut away the internal plastic spline. Untwist pairs by <strong>no more than 0.5 inches</strong>.</li>
-          <li>Sequence conductors for T568B: <em>White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown</em>.</li>
-          <li>Flatten and trim wires flush at 0.5 inches (12.7 mm) from jacket edge using flush cutters.</li>
-          <li>Insert conductors into RJ-45 plug until copper tips contact the end wall; verify outer jacket extends past the internal strain-relief wedge.</li>
-          <li>Crimp firmly using ratcheting modular crimper. Repeat on opposite end to create a straight-through cable (or use T568A for a crossover cable).</li>
-          <li>Connect to cable tester: verify all 8 LED indicators illuminate sequentially from 1 to 8 without open, crossed, or shorted pins.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>What is Near-End Crosstalk (NEXT) and how does pair twist pitch prevent it?</em> NEXT occurs when high-frequency signals in one pair bleed into an adjacent pair. Different twist pitches keep magnetic fields out of phase, allowing differential receivers to cancel out common-mode noise.</p>
-      </div>
-    </div>
+<span class="code-comment"># 2. Inspect CPU processor architecture, physical core count, and socket designation</span>
+Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors, SocketDesignation, MaxClockSpeed
 
-    <!-- Lab 05 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 05</span> SOHO Wireless Gateway Configuration: WPA3-Personal, SSID Cloaking &amp; MAC Filtering</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Configure an enterprise/SOHO wireless access point: establish isolated 2.4 GHz and 5 GHz SSIDs, enforce WPA3-SAE encryption, allocate DHCP scope, and audit rogue Wi-Fi clients.</p>
-        <p><strong>Procedure:</strong></p>
-        <ol>
-          <li>Connect administrative PC to LAN Port 1; open browser and navigate to Gateway IP `192.168.1.1`. Authenticate using default administrator credentials and immediately replace default password.</li>
-          <li>Navigate to <em>Wireless Settings</em> &rarr; <em>5 GHz Radio</em>: set Channel Width to 80 MHz, select clean non-DFS channel (e.g. Channel 36 or 149). Set Security Mode to <strong>WPA3-Personal (SAE)</strong> with 20+ character passphrase.</li>
-          <li>Navigate to <em>Guest Network</em>: enable Guest SSID with client isolation (prevents guests from scanning internal LAN servers or printers).</li>
-          <li>Navigate to <em>DHCP Server</em>: set IP Pool to `192.168.1.100` - `192.168.1.200` (reserving `.1` to `.99` for static servers/printers). Set lease time to 24 hours.</li>
-          <li>Verify client connection and observe negotiated cipher in OS terminal: verify `WPA3-Personal` and `AES-GCMP-256`.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>Why is MAC filtering considered obsolete security?</em> MAC addresses are transmitted in unencrypted plaintext 802.11 frame headers. Any attacker with Wireshark can capture a valid client MAC and clone it to bypass the filter in under 10 seconds.</p>
-      </div>
-    </div>
+<span class="code-comment"># 3. Query physical RAM modules: bank label, capacity in bytes, speed (MT/s), and form factor</span>
+Get-CimInstance Win32_PhysicalMemory | Select-Object DeviceLocator, Capacity, Speed, MemoryType, Manufacturer
 
-    <!-- Lab 06 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 06</span> Windows Management Consoles: MMC Customization, Event Viewer Auditing &amp; Disk Management</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Build a custom Microsoft Management Console (.msc), configure security audit logging for logon failures, and create a stripped RAID 0 software volume in Disk Management.</p>
-        <p><strong>Procedure:</strong></p>
-        <ol>
-          <li>Press `Win + R`, type `mmc.exe`, and press Enter to launch an empty console root.</li>
-          <li>Click <em>File</em> &rarr; <em>Add/Remove Snap-in...</em>: add <strong>Event Viewer</strong>, <strong>Disk Management</strong>, <strong>Device Manager</strong>, and <strong>Services</strong>. Save as `AdminToolkit.msc`.</li>
-          <li>Open `secpol.msc` (Local Security Policy): navigate to <em>Security Settings</em> &rarr; <em>Local Policies</em> &rarr; <em>Audit Policy</em>. Double-click <strong>Audit logon events</strong> and check both <em>Success</em> and <em>Failure</em>.</li>
-          <li>Test audit logging: lock workstation and intentionally enter an incorrect password. Unlock with correct credentials.</li>
-          <li>Open Event Viewer &rarr; <em>Windows Logs</em> &rarr; <em>Security</em>: filter for <strong>Event ID 4625</strong> (An account failed to log on). Inspect failure reason, target user name, and caller process.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>What is the difference between Event ID 4624 and Event ID 4625 in Windows?</em> Event ID 4624 indicates a successful logon; Event ID 4625 indicates a failed logon attempt (vital for detecting brute-force attacks).</p>
-      </div>
-    </div>
-
-    <!-- Lab 07 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 07</span> Linux Administration: System User Creation, Sudoers Privileges &amp; Octal Chmod Permissions</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Create system users, assign secondary administrative groups, enforce POSIX octal file permissions, and configure SUID/SGID bits in a Linux terminal.</p>
-        <p><strong>Terminal Execution Trace:</strong></p>
-        <div class="terminal-block">
-          <div class="terminal-bar">
-            <div class="term-dots"><span class="term-dot dot-red"></span><span class="term-dot dot-yellow"></span><span class="term-dot dot-green"></span></div>
-            <div class="term-title">Bash Terminal • Root Shell</div>
-            <div class="term-actions">
-              <button class="btn-term-action btn-copy-code" type="button"><i data-lucide="copy"></i><span>Copy</span></button>
-            </div>
-          </div>
-          <pre class="code-pre"><code># 1. Create developer user with home directory and bash shell
-sudo useradd -m -s /bin/bash devops_user
-sudo passwd devops_user
-
-# 2. Grant administrative sudo privileges via wheel/sudo group
-sudo usermod -aG sudo devops_user
-
-# 3. Create shared engineering project directory
-sudo mkdir -p /srv/engineering
-sudo chown -R devops_user:developers /srv/engineering
-
-# 4. Enforce read/write/execute for owner, read/execute for group, zero access for others
-sudo chmod 750 /srv/engineering
-ls -ld /srv/engineering
-# Output: drwxr-x--- 2 devops_user developers 4096 Oct 27 15:00 /srv/engineering
-
-# 5. Set SGID bit so newly created files automatically inherit the parent group
-sudo chmod 2770 /srv/engineering
-ls -ld /srv/engineering
-# Output: drwxrws--- 2 devops_user developers 4096 Oct 27 15:00 /srv/engineering</code></pre>
+<span class="code-comment"># 4. Enumerate disk storage devices, bus connection types (NVMe / SATA), and health</span>
+Get-PhysicalDisk | Select-Object DeviceId, FriendlyName, MediaType, BusType, Size, OperationalStatus</code></pre>
         </div>
-        <p><strong>Viva Assessment:</strong> <em>What does the SGID bit (chmod 2770) do when applied to a directory?</em> It forces all newly created files inside that directory to automatically inherit the group ownership of the directory rather than the primary group of the creating user.</p>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          Terminal returns active baseboard model (e.g. <code>Z790 AORUS ELITE</code>), CPU socket designation (e.g. <code>LGA1700</code>), physical memory bank placement (e.g. <code>DIMM_A2, DIMM_B2</code> for dual-channel interleaving), and NVMe bus type reporting <code>OperationalStatus: OK</code>.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What is the primary physical difference between LGA and PGA sockets?</strong><br>
+          <em>Answer:</em> In LGA (Land Grid Array), delicate conductive pins reside inside the motherboard socket contacting flat gold pads on the CPU substrate. In PGA (Pin Grid Array), pins are soldered to the bottom of the CPU package and insert into socket pinholes.<br><br>
+          <strong>Q2: Why are motherboard standoffs mandatory when installing a motherboard inside an ATX case?</strong><br>
+          <em>Answer:</em> Standoffs physically elevate the motherboard PCB 6-10 mm above the metal chassis backplate, preventing exposed solder joints and electrical signal traces from short-circuiting against the grounded metal frame.
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Lab 08 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 08</span> Command-Line Network Diagnostics: Packet Capture, Path MTU Discovery &amp; ARP Cache Poisoning Analysis</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
-      </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Utilize administrative CLI utilities (`ipconfig`, `arp`, `ping`, `tracert`, `netstat`, `nslookup`) to diagnose routing failures, discover maximum transmission units (MTU), and inspect active TCP sockets.</p>
-        <p><strong>Terminal Execution Trace:</strong></p>
-        <div class="terminal-block">
-          <div class="terminal-bar">
-            <div class="term-dots"><span class="term-dot dot-red"></span><span class="term-dot dot-yellow"></span><span class="term-dot dot-green"></span></div>
-            <div class="term-title">PowerShell / Command Prompt</div>
-            <div class="term-actions">
-              <button class="btn-term-action btn-copy-code" type="button"><i data-lucide="copy"></i><span>Copy</span></button>
-            </div>
+  <!-- LAB 2 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 02</div>
+      <div class="subj-title">System Diagnostics, Hardware Auditing &amp; Performance Telemetry</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Use Windows System Information (<code>MSINFO32</code>), Device Manager, Performance Monitor (<code>perfmon</code>), and Command Prompt to analyze memory paging, CPU bottlenecks, and driver states.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Windows 10/11 Enterprise workstation, Performance Monitor, Sysinternals Process Explorer.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt / PowerShell • Diagnostic Utilities</span>
           </div>
-          <pre class="code-pre"><code># 1. Inspect complete TCP/IP stack configuration & DNS servers
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Launch complete GUI Windows System Information tree</span>
+msinfo32
+
+<span class="code-comment"># 2. Extract operating system build, SMBIOS version, and physical memory capacity</span>
+Get-ComputerInfo | Select-Object CsName, WindowsProductName, BiosFirmwareType, BiosSMBIOSBIOSVersion, TotalPhysicalMemory
+
+<span class="code-comment"># 3. Monitor CPU load, committed memory, and disk queue length in real time</span>
+Get-Counter -Counter "\Processor(_Total)\% Processor Time", "\Memory\Available MBytes", "\LogicalDisk(_Total)\Current Disk Queue Length" -SampleInterval 2 -MaxSamples 3
+
+<span class="code-comment"># 4. Enumerate all Plug and Play hardware devices with malfunctioning drivers</span>
+Get-PnpDevice | Where-Object { $_.Status -ne "OK" } | Select-Object FriendlyName, InstanceId, Class, Status</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          Telemetry stream confirms processor load, memory availability (&gt; 4096 MB), and zero devices returning error state <code>Error / Degraded</code>.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What does a high value in the `Memory\Pages/sec` performance counter indicate?</strong><br>
+          <em>Answer:</em> It indicates excessive hard page faults where the operating system is constantly swapping data between physical RAM and the virtual memory pagefile (pagefile.sys) on disk due to memory exhaustion.<br><br>
+          <strong>Q2: What is the architectural difference between UEFI and legacy BIOS firmware?</strong><br>
+          <em>Answer:</em> UEFI supports 64-bit CPU modes, boot disks larger than 2.2 TB using GPT partitioning, Secure Boot digital signature validation, and pre-boot networking, unlike 16-bit real-mode legacy BIOS limited to 2 TB MBR disks.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB 3 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 03</div>
+      <div class="subj-title">BIOS/UEFI Firmware Configuration, Boot Priority &amp; Virtualization Setup</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Access UEFI firmware settings, verify hardware component recognition, configure boot device priority order, enable hardware virtualization (Intel VT-x / AMD-V), and configure Secure Boot key exchange.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> UEFI motherboard testbench, USB boot media, Command Prompt.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt • Boot Configuration Data</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Force immediate system reboot directly into UEFI Firmware Settings GUI</span>
+shutdown /r /fw /t 0
+
+<span class="code-comment">:: 2. Display the active Windows Boot Configuration Data (BCD) store entries</span>
+bcdedit /enum {current}
+
+<span class="code-comment"># 3. Verify hardware virtualization capabilities supported by processor</span>
+systeminfo | findstr /i "Virtualization"
+
+<span class="code-comment"># 4. Query Secure Boot enablement status via PowerShell</span>
+powershell -Command "Confirm-SecureBootUEFI"</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          Command <code>Confirm-SecureBootUEFI</code> returns <code>True</code>, and <code>systeminfo</code> confirms <code>Virtualization Enabled In Firmware: Yes</code>.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What role does Secure Boot play in protecting the operating system integrity?</strong><br>
+          <em>Answer:</em> Secure Boot ensures firmware executes only bootloaders, kernels, and option ROMs that are digitally signed with cryptographic keys trusted in the UEFI DB keystore, blocking rootkits and bootkits.<br><br>
+          <strong>Q2: Why must hardware virtualization (Intel VT-x / AMD-V) be enabled in BIOS before installing Type-2 hypervisors?</strong><br>
+          <em>Answer:</em> It enables CPU hardware extensions (VMX/SVM) that allow hypervisors to execute guest operating system rings without costly binary translation, slashing VM context-switching overhead.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB 4 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 04</div>
+      <div class="subj-title">Operating System User Administration &amp; NTFS Discretionary Access Control (DACLs)</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Create local administrative and standard user accounts, enforce account password policies, create departmental directory hierarchies, and configure granular NTFS file and folder permissions using GUI and <code>icacls</code>.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Windows 10/11 Professional workstation, Local Users and Groups (<code>lusrmgr.msc</code>), Command Prompt.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt • User &amp; Permission Administration</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Create a new standard local user account with non-expiring password</span>
+net user dev_analyst P@ssw0rd2026! /add /comment:"Junior Developer" /passwordchg:no
+
+<span class="code-comment">:: 2. Create an administrative engineering group and assign membership</span>
+net localgroup EngineeringTeam /add
+net localgroup EngineeringTeam dev_analyst /add
+
+<span class="code-comment">:: 3. Create departmental directory structure on drive C:</span>
+mkdir C:\Projects\FinTech_Core
+
+<span class="code-comment">:: 4. Grant EngineeringTeam Read-and-Execute and restrict write access</span>
+icacls "C:\Projects\FinTech_Core" /grant:r EngineeringTeam:(OI)(CI)(RX)
+icacls "C:\Projects\FinTech_Core" /inheritance:r
+icacls "C:\Projects\FinTech_Core" /grant:r Administrators:(OI)(CI)(F)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          Executing <code>icacls C:\Projects\FinTech_Core</code> displays <code>EngineeringTeam:(OI)(CI)(RX)</code> and <code>Administrators:(OI)(CI)(F)</code> with broken inheritance from root.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What is the difference between NTFS permissions and Share permissions?</strong><br>
+          <em>Answer:</em> Share permissions only restrict network-based SMB access to folders, whereas NTFS permissions apply universally both over the network and locally at the disk filesystem level. The most restrictive permission takes precedence.<br><br>
+          <strong>Q2: What do the `(OI)` and `(CI)` flags represent in `icacls` permission inheritance?</strong><br>
+          <em>Answer:</em> `(OI)` stands for Object Inherit (child files inherit the permission), and `(CI)` stands for Container Inherit (child subdirectories inherit the permission).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB 5 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 05</div>
+      <div class="subj-title">Basic Network Configuration, Static/DHCP Addressing &amp; Diagnostic Utilities</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Configure static and dynamic IPv4/IPv6 parameters on network interfaces, calculate CIDR subnet ranges, verify default gateway routing, test DNS resolution, and trace network latency across hops.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Network patch cable, Cat6 RJ-45 crimper, cable tester, Command Prompt / PowerShell.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt • Network Diagnostic Stack</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Display full TCP/IP configuration, MAC addresses, and active DHCP leases</span>
 ipconfig /all
 
-# 2. Flush corrupted local DNS resolver cache
+<span class="code-comment">:: 2. Flush and reset the local DNS resolver cache to clear corrupted records</span>
 ipconfig /flushdns
 
-# 3. Path MTU Discovery: Ping without fragmentation to find maximum packet size
-ping 8.8.8.8 -f -l 1472
-# If successful: 1472 (data) + 20 (IP header) + 8 (ICMP header) = 1500 Byte MTU!
+<span class="code-comment">:: 3. Test ICMP end-to-end network connectivity with 4 echo requests</span>
+ping -n 4 8.8.8.8
 
-# 4. View active Layer 2 ARP cache table
+<span class="code-comment">:: 4. Path MTU Discovery: Ping with Don't Fragment (DF) flag set to find MTU ceiling</span>
+ping 8.8.8.8 -f -l 1472
+
+<span class="code-comment">:: 5. Trace Layer 3 routing hops and latency to target destination</span>
+tracert -d 8.8.8.8
+
+<span class="code-comment">:: 6. Display local ARP cache mapping IPv4 addresses to physical MAC addresses</span>
 arp -a
 
-# 5. Inspect all listening and established TCP sockets with owning Process ID (PID)
-netstat -ano | findstr "ESTABLISHED"</code></pre>
+<span class="code-comment">:: 7. List all active listening TCP ports and associated process IDs</span>
+netstat -ano | findstr "LISTENING"</code></pre>
         </div>
-        <p><strong>Viva Assessment:</strong> <em>Why does pinging with a 1473-byte buffer fail when the `DontFragment` (-f) flag is set on a standard Ethernet connection?</em> Ethernet has an MTU of 1500 bytes. A 1473-byte payload plus 28 bytes of headers equals 1501 bytes, requiring fragmentation. With `-f` enabled, the router drops the packet with "Packet needs to be fragmented but DF set".</p>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          Ping to <code>8.8.8.8</code> succeeds with 0% packet loss and round-trip latency &lt; 20 ms. <code>arp -a</code> displays gateway MAC address corresponding to local router.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: Why does a standard Ethernet ping packet with a 1472-byte payload result in a 1500-byte frame?</strong><br>
+          <em>Answer:</em> The 1472-byte ICMP data payload is encapsulated with a 20-byte IPv4 header and an 8-byte ICMP header (1472 + 20 + 8 = 1500 bytes), which is the standard Ethernet Maximum Transmission Unit (MTU).<br><br>
+          <strong>Q2: What does an IPv4 address beginning with `169.254.x.x` signify?</strong><br>
+          <em>Answer:</em> It indicates an Automatic Private IP Addressing (APIPA) link-local address assigned by the client when it fails to receive an answer from a DHCP server during the DORA process.
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Lab 09 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 09</span> Laser Printer Disassembly, Maintenance Kit Installation &amp; Fuser Calibration</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
+  <!-- LAB 6 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 06</div>
+      <div class="subj-title">Wireless Network Architecture &amp; SOHO Router Security Hardening</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Access SOHO wireless router management portals, configure distinct SSID broadcasts for 2.4 GHz and 5 GHz bands, enforce WPA2/WPA3 Personal encryption with strong pre-shared keys, configure DHCP server address pools, and disable WPS.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Dual-band 802.11ax Wi-Fi router, Ethernet patch cable, Command Prompt.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt • WLAN Diagnostics &amp; Auditing</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Display active wireless network interface parameters and signal quality</span>
+netsh wlan show interfaces
+
+<span class="code-comment">:: 2. Enumerate surrounding Wi-Fi networks, BSSIDs, signal strengths, and channels</span>
+netsh wlan show networks mode=bssid
+
+<span class="code-comment">:: 3. Display list of all saved Wi-Fi connection profiles on the host</span>
+netsh wlan show profiles
+
+<span class="code-comment">:: 4. Export wireless profile with cleartext pre-shared security key for audit</span>
+netsh wlan show profile name="Lab-Office-5G" key=clear
+
+<span class="code-comment">:: 5. Release and renew DHCP lease obtained from SOHO wireless router</span>
+ipconfig /release
+ipconfig /renew</code></pre>
+        </div>
       </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Perform preventative maintenance on an enterprise workgroup laser printer: replace the transfer roller, paper pickup rollers, separation pads, and fuser unit; reset the internal page count maintenance odometer.</p>
-        <p><strong>Procedure:</strong></p>
-        <ol>
-          <li>Power off printer and allow the fuser assembly to cool for 30 minutes (operating temperature &ge;180&deg;C).</li>
-          <li>Release rear cover latches; extract fuser assembly by depressing the blue release levers. Inspect Teflon heat sleeve for gouges or toner buildup. Install new fuser unit until latches click.</li>
-          <li>Open toner door; extract toner cartridge/imaging drum and immediately place in an opaque light-blocking bag to prevent light shock to the OPC drum.</li>
-          <li>Use specialized plastic extraction tool to lift out the Transfer Roller. <strong>Warning: Never touch the sponge surface of the transfer roller with bare fingers; skin oils prevent uniform +600V electrostatic charge transfer!</strong></li>
-          <li>Replace rubber paper-feed pickup rollers and separation pads in Paper Tray 2 using snap-fit tabs.</li>
-          <li>Power on printer, enter Service Menu, and reset the <em>Maintenance Count</em> to 0. Execute an internal Configuration / Quality Test Page.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>Why must the transfer roller never be touched with bare fingers?</em> Human skin secretions leave oil deposits on the conductive sponge. In those spots, the electrical resistance increases, weakening the +600V charge transfer and leaving faded vertical patches on the printout.</p>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          <code>netsh wlan show interfaces</code> shows State: connected, Radio type: <code>802.11ax</code>, Authentication: <code>WPA3-Personal</code>, and Cipher: <code>CCMP / GCMP-256</code>.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: Why is WPA3 Personal significantly more secure than WPA2 against offline dictionary attacks?</strong><br>
+          <em>Answer:</em> WPA3 replaces the WPA2 4-way handshake with Simultaneous Authentication of Equals (SAE, Dragonfly protocol), providing Forward Secrecy and preventing adversaries from capturing handshakes for offline brute-force cracking.<br><br>
+          <strong>Q2: Why should Wi-Fi Protected Setup (WPS) always be disabled on enterprise and SOHO routers?</strong><br>
+          <em>Answer:</em> WPS PIN authentication uses an 8-digit PIN validated in two separate halves (10,000 and 1,000 combinations), allowing tools like Reaver to brute-force the PIN in less than 4 hours.
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Lab 10 -->
-    <div class="subj-card">
-      <div class="subj-header">
-        <div class="subj-q"><span class="badge-sub">EXP 10</span> Virtualization Host Deployment: Type-1 Hypervisor Setup &amp; Virtual Machine Provisioning</div>
-        <i data-lucide="chevron-down" class="subj-chevron"></i>
+  <!-- LAB 7 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 07</div>
+      <div class="subj-title">Local &amp; Network Printer Installation, Driver Isolation &amp; Spooler Triage</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Install network printers via standard TCP/IP ports, configure RAW and LPR port protocols, manage print spooler services, purge stuck print queue jobs, and diagnose 7-stage laser printer electrophotographic defects.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Network laser printer, printer drivers, Print Management console, PowerShell.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> PowerShell • Print Spooler Triage &amp; Management</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment"># 1. Enumerate all locally installed and networked printer devices and drivers</span>
+Get-Printer | Select-Object Name, DriverName, PortName, Shared, PrinterStatus
+
+<span class="code-comment"># 2. Query active print jobs currently queued in the print spooler</span>
+Get-PrintJob -PrinterName "HP-LaserJet-Lab" | Select-Object Id, DocumentName, TotalPages, SubmittedTime
+
+<span class="code-comment"># 3. Forcibly stop the Windows Print Spooler service</span>
+Stop-Service -Name Spooler -Force
+
+<span class="code-comment"># 4. Clear all corrupt or stuck print job spool files (.SPL and .SHD)</span>
+Remove-Item -Path "C:\Windows\System32\spool\PRINTERS\*" -Force
+
+<span class="code-comment"># 5. Restart the Print Spooler service and verify running status</span>
+Start-Service -Name Spooler
+Get-Service -Name Spooler</code></pre>
+        </div>
       </div>
-      <div class="subj-body">
-        <p><strong>Objective:</strong> Enable hardware virtualization extensions (Intel VT-x / AMD-V) in BIOS, configure Microsoft Hyper-V / VMware Workstation, create an external virtual switch (vSwitch), and provision a guest Linux virtual machine.</p>
-        <p><strong>Procedure:</strong></p>
-        <ol>
-          <li>Enter UEFI firmware: enable <em>Intel Virtualization Technology (VT-x)</em> and <em>VT-d (Directed I/O)</em>. Save and boot into Windows.</li>
-          <li>Enable Hyper-V platform via administrative PowerShell: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All`. Reboot system.</li>
-          <li>Launch <em>Hyper-V Manager</em>: open <em>Virtual Switch Manager</em>. Create an <strong>External Virtual Switch</strong> bound to the physical gigabit NIC (enabling guest VMs to obtain real DHCP leases on the physical network).</li>
-          <li>Click <em>New Virtual Machine</em>: select Generation 2 (enables UEFI firmware, SCSI controllers, and Secure Boot).</li>
-          <li>Allocate resources: 2 vCPUs, 4096 MB Dynamic RAM, and 50 GB dynamically expanding VHDX storage disk.</li>
-          <li>Attach Ubuntu Server ISO to the virtual DVD drive, power on VM, and verify successful boot into the guest operating system installer.</li>
-        </ol>
-        <p><strong>Viva Assessment:</strong> <em>What is the difference between a Type-1 and Type-2 hypervisor?</em> A Type-1 hypervisor (ESXi, Hyper-V core) runs directly on the bare-metal hardware without a host OS; a Type-2 hypervisor (VirtualBox, VMware Workstation) runs as an application process inside a host operating system.</p>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          <code>Get-Service -Name Spooler</code> reports Status: <code>Running</code>, and the print queue displays 0 pending jobs.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What causes repetitive dark spots or voids appearing at fixed intervals down a laser-printed page?</strong><br>
+          <em>Answer:</em> A damaged or gouged roller in the electrophotographic assembly. The exact distance between repeating defects corresponds directly to the circumference of the defective roller: Interval = &pi; &times; Diameter (e.g. 30 mm OPC drum &approx; 94.2 mm interval).<br><br>
+          <strong>Q2: What is the function of the Fuser Assembly in an electrophotographic laser printer?</strong><br>
+          <em>Answer:</em> The fuser uses high heat (180°C–205°C) and mechanical pressure to melt the resin particles in the toner powder and permanently bond them into the cellulose fibers of the paper.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB 8 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 08</div>
+      <div class="subj-title">Type-2 Hypervisor Virtualization &amp; Guest Linux Operating System Installation</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Install Oracle VM VirtualBox or VMware Workstation, create a customized virtual machine (2 vCPUs, 4 GB RAM, 25 GB VDI dynamic disk), attach an Ubuntu Linux ISO, configure NAT / Host-Only virtual network adapters, and install guest additions.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Oracle VM VirtualBox, Ubuntu Desktop 24.04 LTS ISO, VirtualBox CLI (<code>VBoxManage</code>).</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> VirtualBox CLI • VBoxManage Automation</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Query VirtualBox hypervisor version and host system capabilities</span>
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" --version
+
+<span class="code-comment">:: 2. Create and register a new 64-bit Linux virtual machine</span>
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" createvm --name "Ubuntu-DevLab" --ostype "Ubuntu_64" --register
+
+<span class="code-comment">:: 3. Configure VM CPU count, memory allocation (4096 MB), and VRAM (128 MB)</span>
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm "Ubuntu-DevLab" --cpus 2 --memory 4096 --vram 128
+
+<span class="code-comment">:: 4. Attach virtual storage controller and provision 25 GB dynamic virtual disk</span>
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" storagectl "Ubuntu-DevLab" --name "SATA Controller" --add sata --controller IntelAHCI
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" createmedium disk --filename "C:\VMs\Ubuntu-DevLab\disk.vdi" --size 25600 --format VDI
+
+<span class="code-comment">:: 5. Configure Network Adapter 1 to Network Address Translation (NAT)</span>
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm "Ubuntu-DevLab" --nic1 nat</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          <code>VBoxManage showvminfo Ubuntu-DevLab</code> outputs state: <code>powered off</code>, Memory size: <code>4096MB</code>, Number of CPUs: <code>2</code>, NIC 1: <code>MAC: ..., Attachment: NAT</code>.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What is the key difference between Type-1 and Type-2 hypervisors?</strong><br>
+          <em>Answer:</em> Type-1 (bare-metal) hypervisors like VMware ESXi or KVM run directly on server hardware with zero host OS overhead. Type-2 (hosted) hypervisors like VirtualBox run as software applications on top of an existing host OS (Windows/macOS).<br><br>
+          <strong>Q2: What is the difference between NAT mode and Bridged mode in VM networking?</strong><br>
+          <em>Answer:</em> In NAT mode, the VM shares the host IP via internal router translation and cannot be initiated from the external LAN. In Bridged mode, the VM connects directly to the physical network switch and receives its own independent IP from the local LAN DHCP server.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB 9 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 09</div>
+      <div class="subj-title">Windows Defender Security Hardening, Advanced Firewall Rules &amp; Audit Logging</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Configure the Windows Defender Advanced Security Firewall, create inbound port blocking rules, configure outbound application restriction policies, inspect Microsoft Defender antivirus signature status, and audit security events in Event Viewer.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Windows Defender Firewall with Advanced Security, Event Viewer, Command Prompt.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt • Security Policy &amp; Firewall</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Verify Windows Defender real-time antivirus engine and signature version</span>
+powershell -Command "Get-MpComputerStatus | Select-Object AntivirusEnabled, RealTimeProtectionEnabled, AntivirusSignatureAge"
+
+<span class="code-comment">:: 2. Enforce active firewall state across Domain, Private, and Public profiles</span>
+netsh advfirewall set allprofiles state on
+
+<span class="code-comment">:: 3. Create inbound firewall rule blocking insecure Telnet (TCP Port 23)</span>
+netsh advfirewall firewall add rule name="Block-Telnet-Inbound" dir=in action=block protocol=TCP localport=23
+
+<span class="code-comment">:: 4. Create inbound firewall rule permitting secure SSH (TCP Port 22)</span>
+netsh advfirewall firewall add rule name="Allow-SSH-Inbound" dir=in action=allow protocol=TCP localport=22
+
+<span class="code-comment">:: 5. Query the last 5 security log events recorded in Windows Event Viewer</span>
+wevtutil qe Security /c:5 /rd:true /f:text</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          <code>netsh advfirewall firewall show rule name="Block-Telnet-Inbound"</code> reports Action: <code>Block</code>, Protocol: <code>TCP</code>, LocalPort: <code>23</code>, Enabled: <code>Yes</code>.
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: In Windows Event Viewer, what do Event IDs 4624 and 4625 indicate?</strong><br>
+          <em>Answer:</em> Event ID 4624 represents a successful account logon, while Event ID 4625 indicates a failed account logon attempt (critical for detecting brute-force password spraying attacks).<br><br>
+          <strong>Q2: What is the difference between a stateless packet filter and a stateful firewall?</strong><br>
+          <em>Answer:</em> A stateless filter inspects each packet in isolation against static rules. A stateful firewall tracks active transport connections in a state table, automatically permitting legitimate response traffic to outbound connections without requiring manual inbound rules.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAB 10 -->
+  <div class="subj-card" style="margin-top: 1.5rem;">
+    <div class="subj-header">
+      <div class="subj-q-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">LAB 10</div>
+      <div class="subj-title">System Maintenance, Storage Optimization &amp; Disaster Recovery Procedures</div>
+      <i data-lucide="chevron-down" class="subj-chevron"></i>
+    </div>
+    <div class="subj-body">
+      <p><strong>Objective:</strong> Execute preventive storage maintenance, clean temporary cache artifacts, verify NTFS filesystem integrity using <code>chkdsk</code>, repair corrupted Windows Component Store packages using DISM, and create system restore points.</p>
+      <p><strong>Apparatus &amp; Tools:</strong> Windows 10/11 Professional workstation, DISM, SFC, Defrag utility.</p>
+
+      <h4 style="color: var(--text-normal); margin-top: 1rem;">Procedure &amp; Terminal Execution Commands:</h4>
+      <div class="terminal-block full-width-module">
+        <div class="terminal-header">
+          <div class="terminal-header-left">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-green"></span>
+            <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Command Prompt • Maintenance &amp; Repair Suite</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+            <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="code-pre"><code><span class="code-comment">:: 1. Scan and verify NTFS volume integrity and report bad sector allocation</span>
+chkdsk C: /f /r
+
+<span class="code-comment">:: 2. Scan and repair corrupted Windows System Component Store using DISM</span>
+dism /online /cleanup-image /restorehealth
+
+<span class="code-comment">:: 3. Execute System File Checker (SFC) to replace corrupted protected system files</span>
+sfc /scannow
+
+<span class="code-comment">:: 4. Optimize and trim fragmented SSD and HDD volumes</span>
+defrag C: /O
+
+<span class="code-comment">:: 5. Create an immediate System Restore Point for disaster recovery</span>
+powershell -Command "Checkpoint-Computer -Description 'Pre-Lab-Baseline' -RestorePointType 'MODIFY_SETTINGS'"</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-key" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="check-circle-2"></i> VERIFICATION &amp; EXPECTED OUTPUT</div>
+        <div class="callout-body">
+          <code>sfc /scannow</code> outputs <code>Windows Resource Protection did not find any integrity violations</code>, and DISM returns <code>The restore operation completed successfully. The operation completed successfully.</code>
+        </div>
+      </div>
+
+      <div class="callout callout-tip" style="margin-top: 1rem;">
+        <div class="callout-label"><i data-lucide="help-circle"></i> VIVA VOCE QUESTIONS &amp; EVALUATION CRITERIA</div>
+        <div class="callout-body">
+          <strong>Q1: What is the functional difference between `sfc /scannow` and `dism /online /cleanup-image /restorehealth`?</strong><br>
+          <em>Answer:</em> `sfc /scannow` checks protected OS files against the local Component Store cache (%WinDir%\WinSxS). If the WinSxS store itself is corrupted, SFC cannot repair files; DISM connects to Windows Update or a clean ISO to repair the corrupted WinSxS store first.<br><br>
+          <strong>Q2: Why should hard disk defragmentation (`defrag`) never be run in traditional mode on Solid State Drives (SSDs)?</strong><br>
+          <em>Answer:</em> SSDs have zero mechanical rotational latency and uniform flash access times. Traditional defragmentation causes unnecessary flash memory write cycles, wearing out NAND flash cells prematurely. SSDs instead require the TRIM command (`defrag /O`).
+        </div>
       </div>
     </div>
   </div>
 
   <div class="page-footer-meta">
-    <span>Unit 06 Complete • Next: Unit 07 Engineering Simulators</span>
-    <span>Unit 06 • Practical Manual</span>
+    <span>Laboratory Practicum Complete • 10 Experiments Verified</span>
+    <span>Practical Manual • Page 10</span>
   </div>
 </article>
 """

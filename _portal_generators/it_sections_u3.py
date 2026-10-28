@@ -366,10 +366,234 @@ IT_UNIT3_HTML = """
   </div>
 
   <div class="page-footer-meta">
-    <span>Next: Unit 03 Practice MCQ Bank</span>
+    <span>Next: Laptop Architecture & Mobile Upgrades</span>
     <span>Unit 03 • Page 05</span>
   </div>
 </article>
+<!-- Page 6: Laptop Component Upgrades & Mobile Power Management -->
+<article class="doc-page" id="it3-laptop-upgrades">
+  <div class="page-header-meta">
+    <span class="meta-tag">IT Fundamentals • CSC104</span>
+    <span class="meta-tag">Unit 03 • Page 06</span>
+    <span class="meta-tag">Bloom's: Apply / Analyze</span>
+  </div>
+
+  <h2 class="section-title">
+    <span class="sec-num">24.</span> Laptop Modular Architecture, Component Upgrades &amp; Battery Telemetry
+  </h2>
+
+  <p class="lead-para">
+    Laptop and mobile workstations require specialized micro-form-factor engineering due to severe chassis volumetric constraints, tight thermal envelopes (15W–45W TDP), and delicate ribbon cable interconnects. Technicians must distinguish between field-replaceable modular components and permanent surface-mounted (BGA) silicon.
+  </p>
+
+  <div class="callout callout-deep">
+    <div class="callout-label"><i data-lucide="laptop"></i> FIELD-REPLACEABLE UNITS (FRUS) VS SOLDERED HARDWARE</div>
+    <div class="callout-body">
+      Traditional enterprise business laptops (e.g. ThinkPad, Latitude, EliteBook) support field upgrades of <strong>SODIMM memory</strong>, <strong>M.2 NVMe storage drives</strong>, <strong>Wi-Fi WLAN/WWAN cards</strong>, and <strong>internal battery packs</strong>. Ultra-thin consumer notebooks increasingly solder LPDDR5 memory and Wi-Fi modules directly onto the motherboard PCB to minimize chassis thickness.
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    1. Laptop Component Upgrade Protocols
+  </h3>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Subsystem / FRU</th>
+          <th>Physical Interface</th>
+          <th>Installation &amp; Upgrade Procedure</th>
+          <th>Diagnostic Precautions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>System Memory</strong></td>
+          <td>SODIMM 260-pin (DDR4) / 262-pin (DDR5)</td>
+          <td>Insert module at 30-degree angle until seated firmly into socket; press down until spring clips click securely into place.</td>
+          <td>Disconnect battery before touching RAM. Notch offset prevents backward insertion; DDR4 and DDR5 SODIMMs are mechanically incompatible.</td>
+        </tr>
+        <tr>
+          <td><strong>Mass Storage</strong></td>
+          <td>M.2 2280 PCIe NVMe SSD (M-Key)</td>
+          <td>Slide NVMe drive into 30-degree M-key slot; secure retaining standoff screw (M2&times;3mm); apply phase-change thermal pad.</td>
+          <td>Ensure SSD is single-sided if the chassis lacks bottom clearance. Over-torquing the standoff screw flexes and fractures the PCB substrate.</td>
+        </tr>
+        <tr>
+          <td><strong>Wireless WLAN Card</strong></td>
+          <td>M.2 2230 (A+E Key) PCIe / CNVi</td>
+          <td>Slide card into slot; attach microscopic coaxial antenna leads (Main = Gray, Aux/MIMO = Black) using plastic spudger.</td>
+          <td>Antenna U.FL/MHF4 connectors deform easily. Never force connectors at an angle; verify snapping tactile feedback.</td>
+        </tr>
+        <tr>
+          <td><strong>Rechargeable Battery</strong></td>
+          <td>Proprietary multi-pin wiring harness</td>
+          <td>Unscrew perimeter captive screws; lift battery by tabs; disconnect multi-pin harness from system board without pulling individual wires.</td>
+          <td>Never puncture or bend Li-ion pouch cells (produces thermal runaway fire). Recycle swollen batteries immediately in fireproof sand.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    2. Battery Health Telemetry &amp; Power Calibration
+  </h3>
+
+  <p>
+    Lithium-ion polymer battery cells degrade chemically over charge cycles, accumulating internal resistance. Operating systems estimate battery percentage by measuring cell terminal voltage across a calibrated fuel-gauge IC:
+  </p>
+
+  <div class="terminal-block full-width-module">
+    <div class="terminal-header">
+      <div class="terminal-header-left">
+        <span class="term-dot dot-red"></span>
+        <span class="term-dot dot-yellow"></span>
+        <span class="term-dot dot-green"></span>
+        <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Windows CMD / PowerShell • Battery Health Telemetry</span>
+      </div>
+      <div class="terminal-actions">
+        <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+        <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <pre class="code-pre"><code><span class="code-comment"># 1. Generate comprehensive battery health diagnostic report (HTML)</span>
+powercfg /batteryreport /output "C:\battery_report.html"
+
+<span class="code-comment"># 2. Inspect Design Capacity vs Full Charge Capacity (Capacity Loss Ratio)</span>
+<span class="code-comment"># Health % = (Full Charge Capacity / Design Capacity) * 100</span>
+<span class="code-comment"># If Health % < 60% or Cycle Count > 500, replace the battery pack.</span>
+
+<span class="code-comment"># 3. Query active sleep states supported by motherboard firmware (Modern Standby S0ix vs S3)</span>
+powercfg /a</code></pre>
+    </div>
+  </div>
+
+  <div class="page-footer-meta">
+    <span>Next: SOHO Wireless Settings &amp; Printer Queue Triage</span>
+    <span>Unit 03 • Page 06</span>
+  </div>
+</article>
+
+<!-- Page 7: SOHO Wireless Settings & Printer Queue Triage -->
+<article class="doc-page" id="it3-soho-wireless-printers">
+  <div class="page-header-meta">
+    <span class="meta-tag">IT Fundamentals • CSC104</span>
+    <span class="meta-tag">Unit 03 • Page 07</span>
+    <span class="meta-tag">Bloom's: Apply / Analyze / Evaluate</span>
+  </div>
+
+  <h2 class="section-title">
+    <span class="sec-num">25.</span> SOHO Wireless Security, Frequency Band Planning &amp; Printer Queue Triage
+  </h2>
+
+  <p class="lead-para">
+    Securing the edge of Small Office / Home Office (SOHO) networks mandates proper radio frequency (RF) channel planning, deployment of cryptographically robust authentication suites (WPA3 SAE), elimination of legacy attack vectors (WPS), and end-to-end spooler queue management for shared networked printers.
+  </p>
+
+  <div class="callout callout-key">
+    <div class="callout-label"><i data-lucide="wifi"></i> RF SPECTRUM ALLOCATION: 2.4 GHz VS 5 GHz VS 6 GHz</div>
+    <div class="callout-body">
+      <ul style="margin-top:0.4rem; margin-left:1.25rem; line-height:1.6;">
+        <li><strong>2.4 GHz Band (802.11b/g/n/ax):</strong> Spans 2.412–2.484 GHz. High physical penetration through drywall and concrete, but severe congestion. Exactly <strong>three non-overlapping 20 MHz channels</strong> exist in North America / ITU: <strong>Channel 1, Channel 6, and Channel 11</strong>.</li>
+        <li><strong>5 GHz Band (802.11a/n/ac/ax):</strong> Spans 5.150–5.850 GHz. Up to 25 non-overlapping 20 MHz channels. Supports 40 MHz, 80 MHz, and 160 MHz channel bonding for gigabit throughput. Lower range and attenuated by solid obstacles.</li>
+        <li><strong>6 GHz Band (Wi-Fi 6E / Wi-Fi 7 - 802.11ax/be):</strong> Spans 5.925–7.125 GHz (1,200 MHz contiguous spectrum). Offers up to 14 channels at 80 MHz or 7 channels at 160/320 MHz width with zero legacy Wi-Fi 4/5 backwards-compatibility contention!</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    1. Wireless Security Suite Comparison &amp; Attack Vectors
+  </h3>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Security Standard</th>
+          <th>Encryption Cipher</th>
+          <th>Key Exchange Mechanism</th>
+          <th>Vulnerabilities &amp; Current Industry Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>WEP (Wired Equivalent Privacy)</strong></td>
+          <td>RC4 Stream Cipher (40/104-bit)</td>
+          <td>Static 24-bit Initialization Vector (IV)</td>
+          <td><strong>BROKEN:</strong> Weak IV repetition allows total key decryption in under 60 seconds using <code>aircrack-ng</code>. Deprecated by IEEE.</td>
+        </tr>
+        <tr>
+          <td><strong>WPA-Personal</strong></td>
+          <td>RC4 with TKIP (Temporal Key Integrity)</td>
+          <td>Pre-Shared Key (PSK) / 4-Way Handshake</td>
+          <td><strong>DEPRECATED:</strong> Intermediate band-aid designed for legacy WEP silicon; vulnerable to Beck-Tews keystream recovery attacks.</td>
+        </tr>
+        <tr>
+          <td><strong>WPA2-Personal</strong></td>
+          <td>AES-CCMP (Counter Mode CBC-MAC)</td>
+          <td>Pre-Shared Key (PSK) 4-Way Handshake</td>
+          <td><strong>LEGACY ACTIVE:</strong> 4-way handshake vulnerable to offline dictionary/brute-force attacks when captured (WPA 4-way EAPOL capture) and KRACK nonce reuse.</td>
+        </tr>
+        <tr>
+          <td><strong>WPA3-Personal</strong></td>
+          <td>AES-GCMP-256 (Galois/Counter Mode)</td>
+          <td>Simultaneous Authentication of Equals (SAE)</td>
+          <td><strong>CURRENT GOLD STANDARD:</strong> Uses Dragonfly handshake (Zero-Knowledge Proof). Immune to offline dictionary cracking; provides Forward Secrecy; mandates Protected Management Frames (PMF).</td>
+        </tr>
+        <tr>
+          <td><strong>WPS (Wi-Fi Protected Setup)</strong></td>
+          <td>PIN / Push-Button method</td>
+          <td>8-digit numeric PIN</td>
+          <td><strong>CRITICAL VULNERABILITY:</strong> PIN split into 4-digit and 3-digit halves with checksum; vulnerable to Reaver brute-force attacks in ~4 hours. <em>Must be disabled immediately on all SOHO routers!</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    2. Network Print Spooler Triage &amp; Driver Models
+  </h3>
+
+  <p>
+    Network printers connect using either <strong>Standard TCP/IP Port (Port 9100 RAW)</strong> or <strong>Internet Printing Protocol (IPP over Port 631 HTTPS)</strong>. When print jobs freeze or corrupt memory buffers, the print spooler queue must be cleared via CLI:
+  </p>
+
+  <div class="terminal-block full-width-module">
+    <div class="terminal-header">
+      <div class="terminal-header-left">
+        <span class="term-dot dot-red"></span>
+        <span class="term-dot dot-yellow"></span>
+        <span class="term-dot dot-green"></span>
+        <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Administrative CMD • Print Spooler Queue Purge &amp; Reset</span>
+      </div>
+      <div class="terminal-actions">
+        <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+        <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <pre class="code-pre"><code><span class="code-comment"># 1. Stop the Windows Print Spooler service to unlock locked print spool files</span>
+net stop spooler
+
+<span class="code-comment"># 2. Force delete all stuck .SHD (Shadow header) and .SPL (Spool data) files</span>
+del /Q /F "%systemroot%\System32\Spool\Printers\*.*"
+
+<span class="code-comment"># 3. Restart Print Spooler service in pristine clean state</span>
+net start spooler
+
+<span class="code-comment"># 4. Verify printer ports and driver status in PowerShell</span>
+Get-Printer | Select-Object Name, PortName, DriverName, PrinterStatus</code></pre>
+    </div>
+  </div>
+
+  <div class="page-footer-meta">
+    <span>Next: Unit 03 Practice MCQ Bank</span>
+    <span>Unit 03 • Page 07</span>
+  </div>
+</article>
+
 
 <!-- Page 6: Unit 3 Practice MCQ Bank (30 Questions) -->
 <article class="doc-page" id="practice-mcq-u3-dev">

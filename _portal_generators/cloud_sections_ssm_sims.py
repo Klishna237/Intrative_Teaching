@@ -124,14 +124,14 @@ CLOUD_SIMS_HTML = r"""
   </p>
 
   <div class="terminal-block" style="border: 1px solid var(--border-strong);">
-    <div class="code-header">
-      <div class="code-header-left">
-        <span class="terminal-dot dot-red"></span>
-        <span class="terminal-dot dot-yellow"></span>
-        <span class="terminal-dot dot-green"></span>
-        <span class="code-title">AWS CloudShell v2 • Bash • ap-south-1 (Mumbai)</span>
+    <div class="terminal-header">
+      <div class="terminal-header-left">
+        <span class="term-dot dot-red"></span>
+        <span class="term-dot dot-yellow"></span>
+        <span class="term-dot dot-green"></span>
+        <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> AWS CloudShell v2 • Bash • ap-south-1 (Mumbai)</span>
       </div>
-      <button class="btn-tool" onclick="clearCliTerminal()"><i data-lucide="trash-2"></i> Clear</button>
+      <div class="terminal-actions"><button class="btn-term-action" onclick="clearCliTerminal()"><i data-lucide="trash-2" style="width:12px;height:12px;"></i> Clear</button></div>
     </div>
     <div class="code-body" style="background: #090d16; min-height: 260px; font-family: var(--font-mono); font-size: 12px; padding: 1rem; color: #e2e8f0;">
       <div id="cliOutput" style="white-space: pre-wrap; line-height: 1.5; margin-bottom: 0.75rem;">

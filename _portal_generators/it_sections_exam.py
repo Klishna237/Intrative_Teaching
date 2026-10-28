@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Unit 8: Master Comprehensive Examination Bank
+Master Comprehensive Examination Bank
 Formatted in Engineering Standard .doc-page style with 10-mark questions, 5-mark questions, and full course outcome matrix.
 """
 
 IT_EXAM_HTML = """
 <!-- ==========================================================================
-     UNIT 08: MASTER COMPREHENSIVE EXAMINATION BANK
+     MASTER COMPREHENSIVE EXAMINATION BANK
      ========================================================================== -->
 
 <article class="doc-page" id="it-exam">
   <div class="page-header-meta">
     <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 08 • Final Assessment Bank</span>
+    <span class="meta-tag">Final Assessment Bank</span>
     <span class="meta-tag">CO1&ndash;CO5 Mapped • 100 Marks Structure</span>
   </div>
 
@@ -147,7 +147,7 @@ IT_EXAM_HTML = """
 
   <div class="page-footer-meta">
     <span>Course Evaluation Bank Complete</span>
-    <span>Unit 08 • Final Assessment Bank</span>
+    <span>Final Assessment Bank</span>
   </div>
 </article>
 """

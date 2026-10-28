@@ -195,13 +195,13 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 04: CLOUD NETWORKING & VPC
+           UNIT 04: CLOUD DATABASES & ANALYTICS
            ========================================== -->
       <div class="toc-unit collapsed" id="tocUnit4Cloud">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 04</span>
-            <span class="toc-unit-title">Cloud Networking &amp; VPC</span>
+            <span class="toc-unit-title">Cloud Databases &amp; Analytics</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -209,17 +209,17 @@ TOC_HTML = """
           <div class="toc-group" id="groupC4Core">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • VPC Architecture</span>
+                <span class="toc-group-title">PART I • Database Architectures</span>
                 <span class="toc-group-count">5 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#c4-vpc" class="toc-link"><span class="toc-link-num">28.</span> Amazon VPC Subnet Topologies</a>
-              <a href="#c4-routing" class="toc-link"><span class="toc-link-num">29.</span> Route Tables, IGW &amp; NAT Gateways</a>
-              <a href="#c4-security" class="toc-link"><span class="toc-link-num">30.</span> Security Groups vs Network ACLs</a>
-              <a href="#c4-peering" class="toc-link"><span class="toc-link-num">31.</span> VPC Peering &amp; Transit Gateway</a>
-              <a href="#c4-hybrid" class="toc-link"><span class="toc-link-num">32.</span> Site-to-Site VPN &amp; Direct Connect</a>
+              <a href="#c5-rds" class="toc-link"><span class="toc-link-num">28.</span> Amazon RDS &amp; Multi-AZ Replication</a>
+              <a href="#c5-aurora" class="toc-link"><span class="toc-link-num">29.</span> Amazon Aurora Storage Architecture</a>
+              <a href="#c5-dynamo" class="toc-link"><span class="toc-link-num">30.</span> DynamoDB Partitioning &amp; Global Tables</a>
+              <a href="#c5-cache" class="toc-link"><span class="toc-link-num">31.</span> ElastiCache (Redis / Memcached)</a>
+              <a href="#c5-bigdata" class="toc-link"><span class="toc-link-num">32.</span> Cloud Analytics: Redshift, Athena, EMR</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupC4Practice">
@@ -231,23 +231,23 @@ TOC_HTML = """
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#practice-mcq-c4" class="toc-link"><span class="toc-link-num">33.</span> Self-Testing Bank: 30 MCQs</a>
-              <a href="#practice-subj-short-c4" class="toc-link"><span class="toc-link-num">34.</span> Short Conceptual Questions (5 Sets)</a>
-              <a href="#practice-subj-long-c4" class="toc-link"><span class="toc-link-num">35.</span> Architectural Scenarios (4 Sets)</a>
-              <a href="#mcq-answer-key-c4" class="toc-link"><span class="toc-link-num">36.</span> Master Answer Key Table</a>
+              <a href="#practice-mcq-c5" class="toc-link"><span class="toc-link-num">33.</span> Self-Testing Bank: 30 MCQs</a>
+              <a href="#practice-subj-short-c5" class="toc-link"><span class="toc-link-num">34.</span> Short Conceptual Questions (5 Sets)</a>
+              <a href="#practice-subj-long-c5" class="toc-link"><span class="toc-link-num">35.</span> Architectural Scenarios (4 Sets)</a>
+              <a href="#mcq-answer-key-c5" class="toc-link"><span class="toc-link-num">36.</span> Master Answer Key Table</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 05: CLOUD DATABASES & ANALYTICS
+           UNIT 05: CLOUD NETWORKING & VPC
            ========================================== -->
       <div class="toc-unit collapsed" id="tocUnit5Cloud">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 05</span>
-            <span class="toc-unit-title">Cloud Databases &amp; Analytics</span>
+            <span class="toc-unit-title">Cloud Networking &amp; VPC</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -255,17 +255,17 @@ TOC_HTML = """
           <div class="toc-group" id="groupC5Core">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • Database Architectures</span>
+                <span class="toc-group-title">PART I • VPC Architecture</span>
                 <span class="toc-group-count">5 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#c5-rds" class="toc-link"><span class="toc-link-num">37.</span> Amazon RDS &amp; Multi-AZ Replication</a>
-              <a href="#c5-aurora" class="toc-link"><span class="toc-link-num">38.</span> Amazon Aurora Storage Architecture</a>
-              <a href="#c5-dynamo" class="toc-link"><span class="toc-link-num">39.</span> DynamoDB Partitioning &amp; Global Tables</a>
-              <a href="#c5-cache" class="toc-link"><span class="toc-link-num">40.</span> ElastiCache (Redis / Memcached)</a>
-              <a href="#c5-bigdata" class="toc-link"><span class="toc-link-num">41.</span> Cloud Analytics: Redshift, Athena, EMR</a>
+              <a href="#c4-vpc" class="toc-link"><span class="toc-link-num">37.</span> Amazon VPC Subnet Topologies</a>
+              <a href="#c4-routing" class="toc-link"><span class="toc-link-num">38.</span> Route Tables, IGW &amp; NAT Gateways</a>
+              <a href="#c4-security" class="toc-link"><span class="toc-link-num">39.</span> Security Groups vs Network ACLs</a>
+              <a href="#c4-peering" class="toc-link"><span class="toc-link-num">40.</span> VPC Peering &amp; Transit Gateway</a>
+              <a href="#c4-hybrid" class="toc-link"><span class="toc-link-num">41.</span> Site-to-Site VPN &amp; Direct Connect</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupC5Practice">
@@ -277,10 +277,10 @@ TOC_HTML = """
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#practice-mcq-c5" class="toc-link"><span class="toc-link-num">42.</span> Self-Testing Bank: 30 MCQs</a>
-              <a href="#practice-subj-short-c5" class="toc-link"><span class="toc-link-num">43.</span> Short Conceptual Questions (5 Sets)</a>
-              <a href="#practice-subj-long-c5" class="toc-link"><span class="toc-link-num">44.</span> Architectural Scenarios (4 Sets)</a>
-              <a href="#mcq-answer-key-c5" class="toc-link"><span class="toc-link-num">45.</span> Master Answer Key Table</a>
+              <a href="#practice-mcq-c4" class="toc-link"><span class="toc-link-num">42.</span> Self-Testing Bank: 30 MCQs</a>
+              <a href="#practice-subj-short-c4" class="toc-link"><span class="toc-link-num">43.</span> Short Conceptual Questions (5 Sets)</a>
+              <a href="#practice-subj-long-c4" class="toc-link"><span class="toc-link-num">44.</span> Architectural Scenarios (4 Sets)</a>
+              <a href="#mcq-answer-key-c4" class="toc-link"><span class="toc-link-num">45.</span> Master Answer Key Table</a>
             </div>
           </div>
         </div>
@@ -333,73 +333,73 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 07: DEEP PACKET TRACE & PROTOCOL
+           PACKET TRACE & SILICON ARCHITECTURE
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit7CloudTrace">
+      <div class="toc-unit collapsed" id="tocUnitCloudTrace">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 07</span>
+            <i data-lucide="cpu" style="width: 15px; height: 15px; color: var(--primary); margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Packet Trace &amp; Silicon Architecture</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#cloud-trace-packet" class="toc-link"><span class="toc-link-num">55.</span> End-to-End AWS VPC Silicon Packet Flow</a>
+            <a href="#cloud-trace-packet" class="toc-link"><span class="toc-link-num">31.</span> End-to-End AWS VPC Silicon Packet Flow</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 08: PRACTICAL LAB MANUAL
+           PRACTICAL HANDS-ON LAB MANUAL
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit8CloudLabs">
+      <div class="toc-unit collapsed" id="tocUnitCloudLabs">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 08</span>
+            <i data-lucide="flask-conical" style="width: 15px; height: 15px; color: #10b981; margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Practical Hands-on Lab Manual</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#cloud-labs-manual" class="toc-link"><span class="toc-link-num">56.</span> 10 Hands-on Enterprise AWS Lab Practicals</a>
+            <a href="#cloud-labs-manual" class="toc-link"><span class="toc-link-num">32.</span> 10 Hands-on Enterprise AWS Lab Practicals</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 09: SIMULATORS & AWS CLI SANDBOX
+           SIMULATORS & INTERACTIVE AWS CLI
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit9CloudSims">
+      <div class="toc-unit collapsed" id="tocUnitCloudSims">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 09</span>
+            <i data-lucide="terminal" style="width: 15px; height: 15px; color: #f59e0b; margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Simulators &amp; Interactive AWS CLI</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#cloud-simulators-tools" class="toc-link"><span class="toc-link-num">57.</span> Interactive Simulators &amp; Live CLI Sandbox</a>
+            <a href="#cloud-simulators-tools" class="toc-link"><span class="toc-link-num">33.</span> Interactive Simulators &amp; Live CLI Sandbox</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 10: COMPREHENSIVE FINAL EXAM BANK
+           FINAL EXAMINATION QUESTION BANK
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit10CloudExam">
+      <div class="toc-unit collapsed" id="tocUnitCloudExam">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 10</span>
+            <i data-lucide="graduation-cap" style="width: 15px; height: 15px; color: #ec4899; margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Final Examination Question Bank</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#cloud-exam-bank" class="toc-link"><span class="toc-link-num">58.</span> CO1&ndash;CO5 Mapped 10M &amp; 5M Question Bank</a>
+            <a href="#cloud-exam-bank" class="toc-link"><span class="toc-link-num">34.</span> CO1&ndash;CO5 Mapped 10M &amp; 5M Question Bank</a>
           </div>
         </div>
       </div>
@@ -644,10 +644,10 @@ CLIENT_SCRIPT = """
         'practice-mcq-c2', 'practice-subj-short-c2', 'practice-subj-long-c2', 'mcq-answer-key-c2',
         'c3-s3', 'c3-s3deep', 'c3-ebs', 'c3-efs', 'c3-cdn',
         'practice-mcq-c3', 'practice-subj-short-c3', 'practice-subj-long-c3', 'mcq-answer-key-c3',
-        'c4-vpc', 'c4-routing', 'c4-security', 'c4-peering', 'c4-hybrid',
-        'practice-mcq-c4', 'practice-subj-short-c4', 'practice-subj-long-c4', 'mcq-answer-key-c4',
         'c5-rds', 'c5-aurora', 'c5-dynamo', 'c5-cache', 'c5-bigdata',
         'practice-mcq-c5', 'practice-subj-short-c5', 'practice-subj-long-c5', 'mcq-answer-key-c5',
+        'c4-vpc', 'c4-routing', 'c4-security', 'c4-peering', 'c4-hybrid',
+        'practice-mcq-c4', 'practice-subj-short-c4', 'practice-subj-long-c4', 'mcq-answer-key-c4',
         'c6-iam', 'c6-kms', 'c6-monitoring', 'c6-defense', 'c6-waf-framework',
         'practice-mcq-c6', 'practice-subj-short-c6', 'practice-subj-long-c6', 'mcq-answer-key-c6',
         'cloud-trace-packet', 'cloud-labs-manual', 'cloud-simulators-tools', 'cloud-exam-bank'

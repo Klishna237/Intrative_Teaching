@@ -6,13 +6,13 @@ Contains all 16 interactive engineering tools + live terminal sandbox.
 
 IT_SIMS_HTML = """
 <!-- ==========================================================================
-     UNIT 07: ENGINEERING SIMULATORS & MASTER CLI SANDBOXES
+     ENGINEERING SIMULATORS & MASTER CLI SANDBOXES
      ========================================================================== -->
 
 <article class="doc-page" id="it-sims">
   <div class="page-header-meta">
     <span class="meta-tag">IT Fundamentals • CSC104</span>
-    <span class="meta-tag">Unit 07 • Engineering Tools</span>
+    <span class="meta-tag">Engineering Tools</span>
     <span class="meta-tag">16 Interactive Simulators</span>
   </div>
 
@@ -144,16 +144,16 @@ IT_SIMS_HTML = """
       Execute live networking, filesystem, and diagnostic commands. Type <code style="color:var(--primary); font-weight:700;">help</code> to see available commands.
     </p>
 
-    <div class="terminal-block">
-      <div class="terminal-bar">
-        <div class="term-dots">
+    <div class="terminal-block" style="border: 1px solid var(--border-strong);">
+      <div class="terminal-header">
+        <div class="terminal-header-left">
           <span class="term-dot dot-red"></span>
           <span class="term-dot dot-yellow"></span>
           <span class="term-dot dot-green"></span>
+          <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> IT_Admin_Shell (Dual Windows CMD / Linux Bash)</span>
         </div>
-        <div class="term-title">IT_Admin_Shell (Dual Windows CMD / Linux Bash)</div>
-        <div class="term-actions">
-          <button class="btn-term-action" type="button" onclick="clearTermScreen()"><i data-lucide="trash-2"></i><span>Clear</span></button>
+        <div class="terminal-actions">
+          <button class="btn-term-action" type="button" onclick="clearTermScreen()" title="Clear Terminal Output"><i data-lucide="trash-2" style="width:12px;height:12px;"></i> <span>Clear</span></button>
         </div>
       </div>
       <div id="itTerminalOutput" style="padding:1rem; min-height:220px; max-height:360px; overflow-y:auto; font-family:var(--font-mono); font-size:12px; line-height:1.6; color:#e2e8f0; background:#0b1120;">
@@ -169,8 +169,8 @@ IT_SIMS_HTML = """
   </div>
 
   <div class="page-footer-meta">
-    <span>Unit 07 Complete • Next: Master Comprehensive Exam Bank</span>
-    <span>Unit 07 • Engineering Tools</span>
+    <span>Engineering Simulators Complete • Next: Comprehensive Exam Bank</span>
+    <span>Engineering Tools</span>
   </div>
 </article>
 """

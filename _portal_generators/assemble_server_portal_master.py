@@ -333,73 +333,73 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 07: DEEP PACKET TRACE & BUS FLOW
+           PACKET TRACE & BUS ARCHITECTURE
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit7ServerTrace">
+      <div class="toc-unit collapsed" id="tocUnitServerTrace">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 07</span>
+            <i data-lucide="cpu" style="width: 15px; height: 15px; color: var(--primary); margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Packet Trace &amp; Bus Architecture</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#server-trace-packet" class="toc-link"><span class="toc-link-num">55.</span> End-to-End Enterprise PCIe &amp; Memory Bus Flow</a>
+            <a href="#server-trace-packet" class="toc-link"><span class="toc-link-num">31.</span> End-to-End Enterprise PCIe &amp; Memory Bus Flow</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 08: PRACTICAL LAB MANUAL
+           PRACTICAL HANDS-ON LAB MANUAL
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit8ServerLabs">
+      <div class="toc-unit collapsed" id="tocUnitServerLabs">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 08</span>
+            <i data-lucide="flask-conical" style="width: 15px; height: 15px; color: #10b981; margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Practical Hands-on Lab Manual</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#server-labs-manual" class="toc-link"><span class="toc-link-num">56.</span> 10 Hands-on Enterprise Server Lab Practicals</a>
+            <a href="#server-labs-manual" class="toc-link"><span class="toc-link-num">32.</span> 10 Hands-on Enterprise Server Lab Practicals</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 09: SIMULATORS & SERVER CLI SANDBOX
+           SIMULATORS & INTERACTIVE SERVER CLI
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit9ServerSims">
+      <div class="toc-unit collapsed" id="tocUnitServerSims">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 09</span>
+            <i data-lucide="terminal" style="width: 15px; height: 15px; color: #f59e0b; margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Simulators &amp; Interactive Server CLI</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#server-simulators-tools" class="toc-link"><span class="toc-link-num">57.</span> Interactive Simulators &amp; Dual PowerShell/Bash CLI</a>
+            <a href="#server-simulators-tools" class="toc-link"><span class="toc-link-num">33.</span> Interactive Simulators &amp; Dual PowerShell/Bash CLI</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 10: COMPREHENSIVE FINAL EXAM BANK
+           FINAL EXAMINATION QUESTION BANK
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit10ServerExam">
+      <div class="toc-unit collapsed" id="tocUnitServerExam">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 10</span>
+            <i data-lucide="graduation-cap" style="width: 15px; height: 15px; color: #ec4899; margin-right: 0.35rem;"></i>
             <span class="toc-unit-title">Final Examination Question Bank</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#server-exam-bank" class="toc-link"><span class="toc-link-num">58.</span> CO1&ndash;CO5 Mapped 10M &amp; 5M Question Bank</a>
+            <a href="#server-exam-bank" class="toc-link"><span class="toc-link-num">34.</span> CO1&ndash;CO5 Mapped 10M &amp; 5M Question Bank</a>
           </div>
         </div>
       </div>

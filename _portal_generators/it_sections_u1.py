@@ -423,10 +423,331 @@ IT_UNIT1_HTML = """
   </div>
 
   <div class="page-footer-meta">
-    <span>Next: Unit 01 Practice MCQ Bank</span>
+    <span>Next: Cable Interfaces & Connectors</span>
     <span>Unit 01 • Page 05</span>
   </div>
 </article>
+<!-- Page 6: Cable Standards, Connectors & Legacy Interfaces -->
+<article class="doc-page" id="it1-cables-connectors">
+  <div class="page-header-meta">
+    <span class="meta-tag">IT Fundamentals • CSC104</span>
+    <span class="meta-tag">Unit 01 • Page 06</span>
+    <span class="meta-tag">Bloom's: Remember / Understand / Analyze</span>
+  </div>
+
+  <h2 class="section-title">
+    <span class="sec-num">06.</span> Cable Interfaces, High-Speed Serial Buses & Legacy Connector Pinouts
+  </h2>
+
+  <p class="lead-para">
+    Physical interconnection standards in computer engineering govern mechanical coupling, differential signaling voltage thresholds, maximum unamplified cable lengths, and pinout assignments. Modern workstation architectures leverage high-speed serial packetized buses (USB4, Thunderbolt, DisplayPort, PCIe tunneling) replacing legacy parallel and asynchronous serial physical layers.
+  </p>
+
+  <div class="callout callout-deep">
+    <div class="callout-label"><i data-lucide="cable"></i> PHYSICAL CONNECTOR &amp; BUS TOPOLOGY CLASSIFICATION</div>
+    <div class="callout-body">
+      Transmission media falls into two primary categories: <strong>Internal Device Interconnects</strong> (SATA, PCIe, M.2) operating inside the Faraday cage of the chassis, and <strong>External Peripheral Interconnects</strong> (USB, Thunderbolt, DisplayPort, HDMI) engineered with robust EMI shielding, ground shells, and hot-plug detection circuitry.
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    1. Modern High-Speed Digital Interconnect Standards
+  </h3>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Standard / Interface</th>
+          <th>Physical Connector</th>
+          <th>Max Bandwidth</th>
+          <th>Max Passive Length</th>
+          <th>Key Electrical &amp; Protocol Characteristics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>USB 3.2 Gen 2x2</strong></td>
+          <td>Type-C (24-pin reversible)</td>
+          <td>20 Gbps</td>
+          <td>1.0 meter</td>
+          <td>Dual-lane SuperSpeed differential signaling; requires dedicated TX/RX pairs on Type-C CC pins.</td>
+        </tr>
+        <tr>
+          <td><strong>USB4 Gen 3x2</strong></td>
+          <td>Type-C (24-pin reversible)</td>
+          <td>40 Gbps</td>
+          <td>0.8 meter</td>
+          <td>Dynamic bandwidth multiplexing; tunnels PCIe 3.0, DisplayPort 1.4a, and USB 3.2 packets over a unified PHY.</td>
+        </tr>
+        <tr>
+          <td><strong>Thunderbolt 4 / 5</strong></td>
+          <td>Type-C (24-pin reversible)</td>
+          <td>40 / 80 (120) Gbps</td>
+          <td>2.0 meters (Active)</td>
+          <td>Mandates PCIe 32 Gbps tunneling for external GPUs/eNVMe, dual 4K/single 8K display streams, and 100W Power Delivery.</td>
+        </tr>
+        <tr>
+          <td><strong>HDMI 2.1</strong></td>
+          <td>Type-A (19-pin)</td>
+          <td>48 Gbps (FRL)</td>
+          <td>3.0 meters</td>
+          <td>Fixed Rate Link (FRL) replacing TMDS; supports 8K@60Hz, 4K@120Hz, Dynamic HDR, and Enhanced Audio Return Channel (eARC).</td>
+        </tr>
+        <tr>
+          <td><strong>DisplayPort 2.1</strong></td>
+          <td>DP Standard (20-pin) / Type-C</td>
+          <td>80 Gbps (UHBR20)</td>
+          <td>2.0 meters</td>
+          <td>Ultra-High Bit Rate (UHBR); Display Stream Compression (DSC 1.2a); Multi-Stream Transport (MST) daisy-chaining.</td>
+        </tr>
+        <tr>
+          <td><strong>Apple Lightning</strong></td>
+          <td>8-pin proprietary</td>
+          <td>480 Mbps (USB 2.0)</td>
+          <td>1.0–2.0 meters</td>
+          <td>Reversible dynamic pin assignment via internal authentication chip; power delivery up to 18W.</td>
+        </tr>
+        <tr>
+          <td><strong>SATA III (Revision 3.0)</strong></td>
+          <td>7-pin data + 15-pin power</td>
+          <td>6 Gbps (600 MB/s)</td>
+          <td>1.0 meter internal</td>
+          <td>8b/10b line encoding; Native Command Queuing (NCQ, 32 commands); AHCI driver register protocol.</td>
+        </tr>
+        <tr>
+          <td><strong>eSATA</strong></td>
+          <td>7-pin external shielded</td>
+          <td>6 Gbps</td>
+          <td>2.0 meters</td>
+          <td>Robust external shielding; lacks power pins unless implemented as eSATAp (combo with USB 5V/12V).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    2. Legacy Interconnects &amp; Analog Fallback Interfaces
+  </h3>
+
+  <p>
+    Enterprise environments routinely support legacy diagnostic ports, server serial consoles, and industrial equipment requiring backwards-compatible signaling:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0;">
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="monitor"></i> Video Graphics Array (VGA / DE-15)</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        15-pin D-subminiature connector transmitting raw analog Red, Green, Blue (RGB) signals with Horizontal and Vertical sync pulses (RGBHV). Highly susceptible to EMI attenuation, cable resistance, and ghosting at resolutions exceeding 1920&times;1080@60Hz. Requires DAC/ADC conversion when interfaced with digital LCD panels.
+      </p>
+    </div>
+
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="tv"></i> Digital Visual Interface (DVI-D, DVI-A, DVI-I)</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        Uses Transition-Minimized Differential Signaling (TMDS). <strong>DVI-D</strong> carries purely digital signals; <strong>DVI-A</strong> carries analog-only; <strong>DVI-I</strong> carries integrated digital and analog. Single-link supports up to 1920&times;1200@60Hz (165 MHz pixel clock); Dual-link adds 3 TMDS pairs doubling bandwidth to 2560&times;1600@60Hz.
+      </p>
+    </div>
+
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="cpu"></i> RS-232 Serial Port (DB-9 / DE-9)</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        Standard 9-pin asynchronous serial port operating at bipolar voltage levels (&plusmn;3V to &plusmn;15V). Pin 2 is Receive Data (RXD), Pin 3 is Transmit Data (TXD), and Pin 5 is Signal Ground (GND). Critical for out-of-band router, switch, and server head-end console administration over null-modem cables.
+      </p>
+    </div>
+
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="printer"></i> IEEE 1284 Parallel Port (DB-25 / Centronics)</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        25-pin legacy parallel printer interface transmitting 8 bits (1 byte) simultaneously over 8 parallel copper traces using TTL 5V logic. Replaced by USB due to severe cross-talk skew across cable lengths exceeding 3 meters and slow transfer rates (up to 2 MB/s in ECP/EPP mode).
+      </p>
+    </div>
+  </div>
+
+  <div class="terminal-block full-width-module">
+    <div class="terminal-header">
+      <div class="terminal-header-left">
+        <span class="term-dot dot-red"></span>
+        <span class="term-dot dot-yellow"></span>
+        <span class="term-dot dot-green"></span>
+        <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> PowerShell • Peripheral Bus Discovery</span>
+      </div>
+      <div class="terminal-actions">
+        <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+        <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <pre class="code-pre"><code><span class="code-comment"># 1. Enumerate all connected USB root hubs, controllers, and speed capabilities</span>
+Get-PnpDevice -Class "USB" | Select-Object FriendlyName, InstanceId, Status
+
+<span class="code-comment"># 2. Query USB host controller bus types and link speed</span>
+Get-CimInstance Win32_USBHub | Select-Object DeviceID, PNPDeviceID, Description
+
+<span class="code-comment"># 3. Detect display monitors and negotiated video interface links via WMI</span>
+Get-CimInstance -Namespace root\wmi -ClassName WmiMonitorConnectionParams | Select-Object VideoOutputTechnology</code></pre>
+    </div>
+  </div>
+
+  <div class="page-footer-meta">
+    <span>Next: Hardware Installation &amp; Diagnostic Troubleshooting</span>
+    <span>Unit 01 • Page 06</span>
+  </div>
+</article>
+
+<!-- Page 7: Hardware Installation & Troubleshooting -->
+<article class="doc-page" id="it1-troubleshooting">
+  <div class="page-header-meta">
+    <span class="meta-tag">IT Fundamentals • CSC104</span>
+    <span class="meta-tag">Unit 01 • Page 07</span>
+    <span class="meta-tag">Bloom's: Apply / Analyze / Evaluate</span>
+  </div>
+
+  <h2 class="section-title">
+    <span class="sec-num">07.</span> PC Hardware Installation, Diagnostic Triage &amp; Thermal Management
+  </h2>
+
+  <p class="lead-para">
+    System assembly and field diagnostics demand rigorous adherence to ESD mitigation protocols, mechanical torque tolerances, circuit continuity verification, and systematic root-cause isolation. Hardware failures typically manifest during the initial Power-On Self-Test (POST) phase or under prolonged thermal load.
+  </p>
+
+  <div class="callout callout-key">
+    <div class="callout-label"><i data-lucide="alert-triangle"></i> POST (POWER-ON SELF-TEST) EXECUTION SEQUENCE</div>
+    <div class="callout-body">
+      When the power button is pressed, the PSU stabilizes voltage rails (+12V, +5V, +3.3V) and asserts the <strong>Power_Good (+5V)</strong> wire to pin 8 of the ATX connector. The motherboard chipset releases the CPU <code>RESET#</code> line. The CPU executes the initial reset vector code stored at address <code>0xFFFFFFF0</code> in the SPI flash ROM, checking:
+      <ol style="margin-top:0.5rem; margin-left:1.5rem; line-height:1.6;">
+        <li><strong>CPU Registers &amp; Microcode Integrity</strong></li>
+        <li><strong>Base Memory (First 64 KB RAM test)</strong></li>
+        <li><strong>Chipset &amp; System Timer Clocks</strong></li>
+        <li><strong>Primary Video Adapter (PCIe GPU / iGPU)</strong></li>
+        <li><strong>CMOS RAM Checksum &amp; Peripheral Enumeration</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    1. Motherboard POST Diagnostic Beep Codes &amp; 7-Segment Hex Displays
+  </h3>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Symptom / Code</th>
+          <th>AMI BIOS Beep Pattern</th>
+          <th>Award / Phoenix Beep</th>
+          <th>Hex Debug Code</th>
+          <th>Root Cause &amp; Remediation Procedure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>No POST / Blank Display</strong></td>
+          <td>Continuous rapid beeps</td>
+          <td>1 Long, continuous</td>
+          <td><code>55</code> / <code>00</code></td>
+          <td>RAM unseated, incompatible timing profile (XMP/EXPO), or defective memory bank. Reseat in slots A2/B2 or test one DIMM individually.</td>
+        </tr>
+        <tr>
+          <td><strong>Video Failure</strong></td>
+          <td>1 Long, 3 Short beeps</td>
+          <td>1 Long, 2 Short beeps</td>
+          <td><code>d6</code> / <code>b2</code></td>
+          <td>GPU not seated in PCIe x16 primary slot, missing 8-pin PCIe power cables, or UEFI CSM legacy video driver failure.</td>
+        </tr>
+        <tr>
+          <td><strong>Timer / Board Failure</strong></td>
+          <td>3 Short beeps</td>
+          <td>Continuous high/low tone</td>
+          <td><code>0d</code></td>
+          <td>First 64 KB base memory read/write failure or system timer failure. Clear CMOS by shorting jumper for 10 seconds.</td>
+        </tr>
+        <tr>
+          <td><strong>Keyboard / Gate A20</strong></td>
+          <td>6 Short beeps</td>
+          <td>3 Long beeps</td>
+          <td><code>A2</code></td>
+          <td>8042 keyboard controller chip failure or Gate A20 line error; disconnect peripheral devices and inspect I/O ports for shorted pins.</td>
+        </tr>
+        <tr>
+          <td><strong>CMOS Checksum Error</strong></td>
+          <td>None / Warning screen</td>
+          <td>1 Long, 1 Short</td>
+          <td><code>F1</code> Prompt</td>
+          <td>CR2032 3V lithium coin cell depleted (&lt; 2.8V). BIOS defaults restored, date/time resets to epoch. Replace CR2032 battery.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    2. Power Supply Electrical Diagnostics with Multimeter
+  </h3>
+
+  <p>
+    Intermittent reboots, spontaneous shutdowns under 3D gaming load, and failure to spin fans require manual verification of the ATX 24-pin connector using a digital multimeter set to DC Voltage mode (20V range):
+  </p>
+
+  <div class="terminal-block full-width-module">
+    <div class="terminal-header">
+      <div class="terminal-header-left">
+        <span class="term-dot dot-red"></span>
+        <span class="term-dot dot-yellow"></span>
+        <span class="term-dot dot-green"></span>
+        <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Hardware Bench • ATX 24-Pin Paperclip &amp; Multimeter Test</span>
+      </div>
+      <div class="terminal-actions">
+        <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+        <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <pre class="code-pre"><code><span class="code-comment"># 1. Disconnect PSU from motherboard and all storage devices</span>
+<span class="code-comment"># 2. Short Pin 16 (Green wire: PS_ON#) to any Pin 15/17 (Black wire: COM/Ground) using a jumper wire</span>
+<span class="code-comment"># 3. PSU fan should spin immediately. If fan remains dead, PSU internal fuse or primary switching circuit is blown.</span>
+
+<span class="code-comment"># 4. Measure DC voltages with Black probe in Pin 15 (GND) and Red probe probing each pin:</span>
+<span class="code-comment"># Pin 8  (Gray wire)   : Power_Good  -> MUST measure +5.0V (+-5% -> 4.75V to 5.25V)</span>
+<span class="code-comment"># Pin 9  (Purple wire) : +5VSB Standby-> MUST measure +5.0V even when computer is powered off</span>
+<span class="code-comment"># Pin 10 (Yellow wire) : +12V Rail   -> MUST measure +11.40V to +12.60V under load</span>
+<span class="code-comment"># Pin 4  (Red wire)    : +5V Rail    -> MUST measure +4.75V to +5.25V</span>
+<span class="code-comment"># Pin 2  (Orange wire) : +3.3V Rail  -> MUST measure +3.14V to +3.47V</span></code></pre>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    3. Thermal Physics, Heatsink Mechanics &amp; Overheating
+  </h3>
+
+  <p>
+    Semiconductor transistors generate heat proportional to switching frequency and the square of operating voltage:
+  </p>
+  $$\text{Dynamic Power Dissipation } (P) = C \times V^2 \times f$$
+  <p>
+    When heat generation exceeds cooler Thermal Design Power (TDP) dissipation capacity, the CPU substrate reaches <strong>TJMax (typically 100&deg;C–105&deg;C)</strong>. The CPU internal Digital Thermal Sensors (DTS) initiate <strong>PROCHOT# (Processor Hot)</strong> throttling, inserting idle clock cycles and cutting core clock frequencies by up to 70% to prevent destructive silicon breakdown.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem; margin: 1rem 0;">
+    <div style="padding: 0.85rem; border-radius: 6px; background: var(--bg-surface); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
+      <strong style="color: var(--primary);">Thermal Paste Application</strong><br>
+      <span style="color: var(--text-muted);">A pea-sized dot (or thin X pattern) in the center of the Integrated Heat Spreader (IHS). Too little paste leaves microscopic air pockets (thermal conductivity ~0.026 W/mK); too much paste risks spillage over socket contacts if electrically conductive (liquid metal).</span>
+    </div>
+    <div style="padding: 0.85rem; border-radius: 6px; background: var(--bg-surface); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
+      <strong style="color: var(--primary);">Uneven Heatsink Pressure</strong><br>
+      <span style="color: var(--text-muted);">Spring-loaded screws must be tightened in a cross/diagonal pattern (X-order) in half-turn increments. Uneven pressure causes the CPU substrate to flex, breaking contact with delicate socket pins and producing memory channel drops.</span>
+    </div>
+    <div style="padding: 0.85rem; border-radius: 6px; background: var(--bg-surface); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
+      <strong style="color: var(--primary);">AIO Liquid Cooler Failure</strong><br>
+      <span style="color: var(--text-muted);">Symptoms of failed Closed-Loop Coolers (CLC/AIO) include instant 100&deg;C spikes within 30 seconds of booting, one coolant hose feeling scorching hot while the other stays cold, and pump tachometer reporting 0 RPM in BIOS.</span>
+    </div>
+  </div>
+
+  <div class="page-footer-meta">
+    <span>Next: Unit 01 Practice MCQ Bank</span>
+    <span>Unit 01 • Page 07</span>
+  </div>
+</article>
+
 
 <!-- Page 6: Unit 1 Practice MCQ Bank (30 Questions) -->
 <article class="doc-page" id="practice-mcq-u1-hw">

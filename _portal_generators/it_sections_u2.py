@@ -416,10 +416,175 @@ IT_UNIT2_HTML = """
   </div>
 
   <div class="page-footer-meta">
-    <span>Next: Unit 02 Practice MCQ Bank</span>
+    <span>Next: Client Virtualization & Cloud Models</span>
     <span>Unit 02 • Page 05</span>
   </div>
 </article>
+<!-- Page 6: Virtualization & Cloud Computing Architecture -->
+<article class="doc-page" id="it2-virtualization-cloud">
+  <div class="page-header-meta">
+    <span class="meta-tag">IT Fundamentals • CSC104</span>
+    <span class="meta-tag">Unit 02 • Page 06</span>
+    <span class="meta-tag">Bloom's: Understand / Apply / Evaluate</span>
+  </div>
+
+  <h2 class="section-title">
+    <span class="sec-num">15.</span> Client-Side Virtualization &amp; Cloud Computing Architecture (IaaS, PaaS, SaaS)
+  </h2>
+
+  <p class="lead-para">
+    Virtualization decouples physical computing resources (CPU, RAM, storage, network adapters) from operating system instances through a software abstraction layer known as a Virtual Machine Monitor (VMM) or Hypervisor. Cloud computing extends virtualization across distributed datacenter clusters, delivering elastic, metered resources over IP networks.
+  </p>
+
+  <div class="callout callout-deep">
+    <div class="callout-label"><i data-lucide="layers"></i> TYPE-1 BARE-METAL VS TYPE-2 HOSTED HYPERVISORS</div>
+    <div class="callout-body">
+      Hypervisors fall into two distinct architectural classes:
+      <ul style="margin-top:0.4rem; margin-left:1.25rem; line-height:1.6;">
+        <li><strong>Type-1 (Bare-Metal / Native):</strong> Runs directly on physical bare-metal silicon with no underlying general-purpose OS. Examples include VMware ESXi, Microsoft Hyper-V, and Linux KVM. Offers sub-microsecond latency, zero OS host overhead, and direct hardware interrupt control.</li>
+        <li><strong>Type-2 (Hosted / Client-Side):</strong> Executes as an application process inside a host operating system (Windows, macOS, Linux). Examples include Oracle VM VirtualBox and VMware Workstation. Ideal for desktop sandbox testing, software debugging, and multi-OS environments.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    1. Hardware-Assisted Virtualization &amp; Memory Virtualization (SLAT)
+  </h3>
+
+  <p>
+    Modern virtual machines execute native unprivileged ring-3 and privileged ring-0 instructions at near bare-metal speeds thanks to CPU instruction set extensions:
+  </p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Hardware Feature</th>
+          <th>Intel Implementation</th>
+          <th>AMD Implementation</th>
+          <th>Technical Architectural Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hardware Virtualization</strong></td>
+          <td>Intel VT-x (VMX)</td>
+          <td>AMD-V (SVM)</td>
+          <td>Introduces Root and Non-Root CPU operation modes. Prevents "ring 0 footprint" collisions without binary translation.</td>
+        </tr>
+        <tr>
+          <td><strong>Second Level Address Translation</strong></td>
+          <td>Extended Page Tables (EPT)</td>
+          <td>Rapid Virtualization Indexing (RVI)</td>
+          <td>Maintains hardware-accelerated mapping between Guest Physical Addresses (GPA) and Host Physical Addresses (HPA), avoiding expensive VM-exits on memory lookups.</td>
+        </tr>
+        <tr>
+          <td><strong>Direct I/O Device Assignment</strong></td>
+          <td>Intel VT-d</td>
+          <td>AMD-Vi (IOMMU)</td>
+          <td>Allows guest VMs to directly control physical PCIe devices (e.g. GPU Passthrough, 10GbE SR-IOV) bypassing hypervisor software emulation.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    2. Virtual Networking Modes in Client Hypervisors
+  </h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin: 1rem 0;">
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="network"></i> Bridged Networking</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        The virtual NIC binds directly to the physical host adapter. The VM requests its own unique IP address from the physical network's DHCP server, behaving like an independent physical computer on the local LAN.
+      </p>
+    </div>
+
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="share-2"></i> NAT (Network Address Translation)</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        The default mode. The hypervisor creates an isolated internal virtual subnet (e.g. <code>10.0.2.0/24</code>) with an internal virtual router. The VM can access the Internet using the host's IP address, but outside LAN clients cannot initiate inbound sessions to the VM.
+      </p>
+    </div>
+
+    <div style="padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i data-lucide="shield"></i> Host-Only Networking</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        Creates a private loopback virtual network connected only between the host OS and virtual machines. Completely isolated from the physical LAN and the public Internet; ideal for malware detonation sandboxes.
+      </p>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-main);">
+    3. Cloud Computing Service Models: NIST SP 800-145
+  </h3>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Service Model</th>
+          <th>What the Provider Manages</th>
+          <th>What the Customer Manages</th>
+          <th>Enterprise Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>IaaS (Infrastructure as a Service)</strong></td>
+          <td>Physical hardware, virtualization, datacenters, cooling, core switching, hypervisor.</td>
+          <td>Operating system, security patching, applications, network firewall rules, user data.</td>
+          <td>Amazon EC2, Azure Virtual Machines, Google Compute Engine.</td>
+        </tr>
+        <tr>
+          <td><strong>PaaS (Platform as a Service)</strong></td>
+          <td>Hardware, hypervisor, OS maintenance, runtime libraries, database engines, patching.</td>
+          <td>Application source code, container configurations, business logic, datasets.</td>
+          <td>AWS Elastic Beanstalk, Azure App Services, Heroku, Google App Engine.</td>
+        </tr>
+        <tr>
+          <td><strong>SaaS (Software as a Service)</strong></td>
+          <td>The complete software stack: hardware, OS, application code, high availability, backups.</td>
+          <td>User access management, tenant configurations, client endpoint security, data upload.</td>
+          <td>Microsoft 365, Google Workspace, Salesforce, Zoom, Dropbox.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="terminal-block full-width-module">
+    <div class="terminal-header">
+      <div class="terminal-header-left">
+        <span class="term-dot dot-red"></span>
+        <span class="term-dot dot-yellow"></span>
+        <span class="term-dot dot-green"></span>
+        <span class="terminal-title"><i data-lucide="terminal" style="width:13px;height:13px;"></i> Bash &amp; PowerShell • Virtual Machine Inspection</span>
+      </div>
+      <div class="terminal-actions">
+        <button class="btn-term-action btn-toggle-comments" title="Show / Hide Comments"><i data-lucide="eye" style="width:12px;height:12px;"></i> <span>Comments</span></button>
+        <button class="btn-term-action btn-copy-code" title="Copy Command Code"><i data-lucide="copy" style="width:12px;height:12px;"></i> <span>Copy</span></button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <pre class="code-pre"><code><span class="code-comment"># 1. Inspect hardware virtualization support on Linux host</span>
+lscpu | grep -E "Virtualization|Hypervisor"
+<span class="code-comment"># Flags indicating hardware virtualization: vmx (Intel) or svm (AMD)</span>
+grep -E --color=auto "vmx|svm" /proc/cpuinfo
+
+<span class="code-comment"># 2. List running virtual machines via Oracle VirtualBox CLI (VBoxManage)</span>
+VBoxManage list runningvms
+
+<span class="code-comment"># 3. Query Hyper-V virtual switch configurations in Windows PowerShell</span>
+Get-VMSwitch | Select-Object Name, SwitchType, NetAdapterInterfaceDescription</code></pre>
+    </div>
+  </div>
+
+  <div class="page-footer-meta">
+    <span>Next: Unit 02 Practice MCQ Bank</span>
+    <span>Unit 02 • Page 06</span>
+  </div>
+</article>
+
 
 <!-- Page 6: Unit 2 Practice MCQ Bank (30 Questions) -->
 <article class="doc-page" id="practice-mcq-u2-net">

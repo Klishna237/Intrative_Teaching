@@ -11,6 +11,9 @@ import re
 from it_sections_u1 import IT_UNIT1_HTML
 from it_sections_u2 import IT_UNIT2_HTML
 from it_sections_u3 import IT_UNIT3_HTML
+from it_sections_u4 import IT_UNIT4_HTML
+from it_sections_u5 import IT_UNIT5_HTML
+from it_sections_u6 import IT_UNIT6_HTML
 from it_sections_soho import IT_SOHO_HTML
 import os
 from it_sections_labs import IT_LABS_HTML
@@ -24,6 +27,10 @@ with open(ext_path, 'r', encoding='utf-8', errors='ignore') as f:
 # 1. Extract CSS and Head
 head_m = re.search(r'<head>(.*?)</head>', ext_html, re.DOTALL)
 head_content = head_m.group(1) if head_m else ""
+head_content = re.sub(r'<meta name="viewport"[^>]*>', "", head_content, flags=re.I)
+head_content = re.sub(r'<title>.*?</title>', '', head_content, flags=re.DOTALL)
+head_content = re.sub(r'<meta\s+charset=[^>]+>', '', head_content)
+head_content = re.sub(r'<meta name="viewport"[^>]*>', "", head_content, flags=re.I)
 
 # 2. Extract Engineering Standard articles from external_it_fundamentals.html
 # We want sec1 through sec13 (Unit 1 in Engineering Standard, now part of Unit 4)
@@ -69,13 +76,13 @@ TOC_HTML = """
     <div class="toc-content">
 
       <!-- ==========================================
-           UNIT 01: COMPUTER HARDWARE & MOTHERBOARDS
+           UNIT 01: PC HARDWARE AND CONFIGURATION
            ========================================== -->
       <div class="toc-unit" id="tocUnit1HW">
         <button class="toc-unit-header" type="button" aria-expanded="true">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 01</span>
-            <span class="toc-unit-title">Computer Hardware &amp; Motherboards</span>
+            <span class="toc-unit-title">PC Hardware and Configuration</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -83,17 +90,17 @@ TOC_HTML = """
           <div class="toc-group" id="groupHwCore">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • Core Hardware Subsystems</span>
+                <span class="toc-group-title">PART I • Core PC Hardware &amp; Connectors</span>
                 <span class="toc-group-count">5 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#it1-formfactors" class="toc-link active"><span class="toc-link-num">01.</span> Motherboard Form Factors &amp; Standoffs</a>
+              <a href="#it1-formfactors" class="toc-link active"><span class="toc-link-num">01.</span> Motherboards, Form Factors &amp; Standoffs</a>
               <a href="#it1-chipset" class="toc-link"><span class="toc-link-num">02.</span> Chipset Architectures &amp; PCIe 5.0 Bus</a>
-              <a href="#it1-cpu" class="toc-link"><span class="toc-link-num">03.</span> CPU Sockets (LGA/PGA) &amp; SRAM Cache</a>
+              <a href="#it1-cpu" class="toc-link"><span class="toc-link-num">03.</span> CPU Sockets (LGA/PGA) &amp; Cache Architecture</a>
               <a href="#it1-ram" class="toc-link"><span class="toc-link-num">04.</span> Dynamic RAM (DDR4/DDR5) &amp; Latency Math</a>
-              <a href="#it1-psu" class="toc-link"><span class="toc-link-num">05.</span> Power Supplies &amp; 80 Plus Efficiency</a>
+              <a href="#it1-psu" class="toc-link"><span class="toc-link-num">05.</span> Power Supplies (SMPS) &amp; 80 Plus Efficiency</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupHwPractice">
@@ -115,13 +122,13 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 02: COMPUTER NETWORKING TOPOLOGIES
+           UNIT 02: NETWORKING FUNDAMENTALS
            ========================================== -->
       <div class="toc-unit collapsed" id="tocUnit2Net">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 02</span>
-            <span class="toc-unit-title">Networking Topologies &amp; Protocols</span>
+            <span class="toc-unit-title">Networking Fundamentals</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -129,17 +136,17 @@ TOC_HTML = """
           <div class="toc-group" id="groupNetCore">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • Network Architecture</span>
+                <span class="toc-group-title">PART I • Topologies, Hardware &amp; Protocols</span>
                 <span class="toc-group-count">5 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#it2-topologies" class="toc-link"><span class="toc-link-num">10.</span> Physical &amp; Logical Topologies</a>
-              <a href="#it2-cables" class="toc-link"><span class="toc-link-num">11.</span> Structured Cabling (Cat5e-8) &amp; T568A/B</a>
-              <a href="#it2-switching" class="toc-link"><span class="toc-link-num">12.</span> Layer 2 Switching &amp; Domain Boundaries</a>
+              <a href="#it2-topologies" class="toc-link"><span class="toc-link-num">10.</span> Network Types (LAN, WAN, PAN) &amp; Topologies</a>
+              <a href="#it2-cables" class="toc-link"><span class="toc-link-num">11.</span> Structured Cabling (Cat5e-8, Fiber) &amp; T568A/B</a>
+              <a href="#it2-switching" class="toc-link"><span class="toc-link-num">12.</span> Layer 2 Switching, Routing &amp; Domain Boundaries</a>
               <a href="#it2-encapsulation" class="toc-link"><span class="toc-link-num">13.</span> OSI 7-Layer vs TCP/IP Encapsulation</a>
-              <a href="#it2-subnetting" class="toc-link"><span class="toc-link-num">14.</span> IPv4 CIDR Subnetting &amp; IPv6 SLAAC</a>
+              <a href="#it2-subnetting" class="toc-link"><span class="toc-link-num">14.</span> IPv4 CIDR Subnetting, IPv6 &amp; Virtualization/Cloud</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupNetPractice">
@@ -161,13 +168,13 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 03: MOBILE & PERIPHERALS
+           UNIT 03: MOBILE AND PERIPHERAL DEVICES
            ========================================== -->
       <div class="toc-unit collapsed" id="tocUnit3Dev">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 03</span>
-            <span class="toc-unit-title">Mobile Devices &amp; Printing Tech</span>
+            <span class="toc-unit-title">Mobile and Peripheral Devices</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -175,17 +182,17 @@ TOC_HTML = """
           <div class="toc-group" id="groupDevCore">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • Devices &amp; Peripherals</span>
+                <span class="toc-group-title">PART I • Devices, Printers &amp; SOHO Wireless</span>
                 <span class="toc-group-count">5 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#it3-mobile" class="toc-link"><span class="toc-link-num">19.</span> Mobile SoC &amp; OS Sandboxing</a>
-              <a href="#it3-peripherals" class="toc-link"><span class="toc-link-num">20.</span> USB4, Thunderbolt 4 &amp; Tunneling</a>
-              <a href="#it3-laser" class="toc-link"><span class="toc-link-num">21.</span> The 6-Stage Laser Printing Engine</a>
-              <a href="#it3-storage" class="toc-link"><span class="toc-link-num">22.</span> NVMe over PCIe vs SATA AHCI</a>
-              <a href="#it3-printing-types" class="toc-link"><span class="toc-link-num">23.</span> Inkjet, Thermal, Impact &amp; 3D</a>
+              <a href="#it3-mobile" class="toc-link"><span class="toc-link-num">19.</span> Mobile Hardware, Laptops &amp; Upgrades</a>
+              <a href="#it3-peripherals" class="toc-link"><span class="toc-link-num">20.</span> USB4, Thunderbolt 4 &amp; Peripheral Buses</a>
+              <a href="#it3-laser" class="toc-link"><span class="toc-link-num">21.</span> Laser Printing Engine &amp; Defect Analysis</a>
+              <a href="#it3-storage" class="toc-link"><span class="toc-link-num">22.</span> Storage Devices (NVMe M.2 vs SATA SSD)</a>
+              <a href="#it3-printing-types" class="toc-link"><span class="toc-link-num">23.</span> Inkjet, Thermal, Impact &amp; Wireless Configuration</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupDevPractice">
@@ -207,13 +214,13 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 04: WINDOWS NT ARCHITECTURE & SECURITY
+           UNIT 04: SECURITY AND SYSTEM PROTECTION
            ========================================== -->
       <div class="toc-unit collapsed" id="tocUnit4NT">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 04</span>
-            <span class="toc-unit-title">Windows NT Architecture &amp; Security</span>
+            <span class="toc-unit-title">Security and System Protection</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -221,40 +228,39 @@ TOC_HTML = """
           <div class="toc-group" id="groupNTCore">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • Core NT Architecture</span>
-                <span class="toc-group-count">10 Topics</span>
+                <span class="toc-group-title">PART I • OS Architecture &amp; Subsystems</span>
+                <span class="toc-group-count">8 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#sec1" class="toc-link"><span class="toc-link-num">01.</span> Windows NT Design Goals (PRESC)</a>
+              <a href="#sec1" class="toc-link"><span class="toc-link-num">01.</span> Windows NT Design Goals &amp; OS Editions</a>
               <a href="#sec2" class="toc-link"><span class="toc-link-num">02.</span> Layered NT Architecture Stack</a>
-              <a href="#sec3" class="toc-link"><span class="toc-link-num">03.</span> User Mode vs Kernel Mode</a>
+              <a href="#sec3" class="toc-link"><span class="toc-link-num">03.</span> User Mode vs Kernel Mode Protection</a>
               <a href="#sec4" class="toc-link"><span class="toc-link-num">04.</span> The 8 NT Executive Managers</a>
-              <a href="#sec5" class="toc-link"><span class="toc-link-num">05.</span> Microkernel &amp; IRQLs (0 to 31)</a>
+              <a href="#sec5" class="toc-link"><span class="toc-link-num">05.</span> Microkernel &amp; Interrupt Request Levels (IRQLs)</a>
               <a href="#sec6" class="toc-link"><span class="toc-link-num">06.</span> Hardware Abstraction Layer (HAL)</a>
-              <a href="#sec8" class="toc-link"><span class="toc-link-num">08.</span> I/O Stack &amp; IRP Dispatch</a>
-              <a href="#sec9" class="toc-link"><span class="toc-link-num">09.</span> Process Launch (chrome.exe Trace)</a>
-              <a href="#sec11" class="toc-link"><span class="toc-link-num">11.</span> End-to-End File Save Path</a>
-              <a href="#sec13" class="toc-link"><span class="toc-link-num">13.</span> Windows Administrative CLI</a>
+              <a href="#sec8" class="toc-link"><span class="toc-link-num">08.</span> I/O Stack &amp; IRP Dispatch Architecture</a>
+              <a href="#sec9" class="toc-link"><span class="toc-link-num">09.</span> Process Launch &amp; Memory Allocation</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupNTSec">
             <button class="toc-group-header" type="button" aria-expanded="false">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART II • Security &amp; Registry</span>
-                <span class="toc-group-count">7 Topics</span>
+                <span class="toc-group-title">PART II • Security, Filesystems &amp; Registry</span>
+                <span class="toc-group-count">8 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#sec14" class="toc-link"><span class="toc-link-num">14.</span> Security Subsystem (LSA &amp; SRM)</a>
-              <a href="#sec15" class="toc-link"><span class="toc-link-num">15.</span> Accounts &amp; SID Architecture</a>
-              <a href="#sec16" class="toc-link"><span class="toc-link-num">16.</span> Kerberos v5 vs NTLMv2</a>
-              <a href="#sec18" class="toc-link"><span class="toc-link-num">18.</span> Access Control (Tokens, DACLs, SACLs)</a>
+              <a href="#sec14" class="toc-link"><span class="toc-link-num">14.</span> Windows Security Subsystem (LSA &amp; SRM)</a>
+              <a href="#sec15" class="toc-link"><span class="toc-link-num">15.</span> User Accounts &amp; SID Architecture</a>
+              <a href="#sec16" class="toc-link"><span class="toc-link-num">16.</span> Authentication: Kerberos v5 vs NTLMv2</a>
+              <a href="#sec18" class="toc-link"><span class="toc-link-num">18.</span> Access Control (Tokens, DACLs &amp; SACLs)</a>
               <a href="#sec20" class="toc-link"><span class="toc-link-num">20.</span> Defender, UAC &amp; Integrity Levels</a>
-              <a href="#sec26-sysfiles" class="toc-link"><span class="toc-link-num">26.</span> Core Windows System Files</a>
+              <a href="#sec26-sysfiles" class="toc-link"><span class="toc-link-num">26.</span> Core Windows System Files (.dll, .sys, .exe)</a>
               <a href="#sec27-registry" class="toc-link"><span class="toc-link-num">27.</span> Windows Registry Architecture &amp; Hives</a>
+              <a href="#sec11" class="toc-link"><span class="toc-link-num">11.</span> NTFS File Save Path &amp; Permissions</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupNTPractice">
@@ -266,86 +272,115 @@ TOC_HTML = """
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#practice-mcq-u1" class="toc-link"><span class="toc-link-num">U1.</span> Core NT MCQ Bank (30 Qs)</a>
-              <a href="#practice-subj-short-u1" class="toc-link"><span class="toc-link-num">U1.</span> Core NT Conceptual Q&amp;A</a>
-              <a href="#practice-subj-long-u1" class="toc-link"><span class="toc-link-num">U1.</span> Core NT Scenario Problems</a>
-              <a href="#practice-mcq-u2" class="toc-link"><span class="toc-link-num">U2.</span> Security Subsystem MCQ Bank (30 Qs)</a>
-              <a href="#practice-subj-short-u2" class="toc-link"><span class="toc-link-num">U2.</span> Security Conceptual Q&amp;A</a>
-              <a href="#practice-subj-long-u2" class="toc-link"><span class="toc-link-num">U2.</span> Security Scenario Problems</a>
+              <a href="#practice-mcq-u1" class="toc-link"><span class="toc-link-num">U4.</span> Core OS MCQ Bank (30 Qs)</a>
+              <a href="#practice-subj-short-u1" class="toc-link"><span class="toc-link-num">U4.</span> OS Architecture Conceptual Q&amp;A</a>
+              <a href="#practice-subj-long-u1" class="toc-link"><span class="toc-link-num">U4.</span> System Protection Scenario Problems</a>
+              <a href="#practice-mcq-u2" class="toc-link"><span class="toc-link-num">U4.</span> Security Subsystem MCQ Bank (30 Qs)</a>
+              <a href="#practice-subj-short-u2" class="toc-link"><span class="toc-link-num">U4.</span> Access Control Conceptual Q&amp;A</a>
+              <a href="#practice-subj-long-u2" class="toc-link"><span class="toc-link-num">U4.</span> Privilege Escalation Scenarios</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 05: LINUX OS & SOHO SECURITY
+           UNIT 05: OS TROUBLESHOOTING AND COMMAND LINE
            ========================================== -->
       <div class="toc-unit collapsed" id="tocUnit5Linux">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 05</span>
-            <span class="toc-unit-title">Linux OS, Shell &amp; SOHO Security</span>
+            <span class="toc-unit-title">OS Troubleshooting &amp; Command Line</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
-          <div class="toc-group" id="groupLinuxCore">
+          <div class="toc-group" id="groupOSTrouble">
             <button class="toc-group-header" type="button" aria-expanded="true">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART I • Linux Architecture &amp; Bash</span>
-                <span class="toc-group-count">7 Topics</span>
-              </div>
-              <i data-lucide="chevron-down" class="toc-chevron"></i>
-            </button>
-            <div class="toc-group-body">
-              <a href="#sec28-bash" class="toc-link"><span class="toc-link-num">28.</span> Linux OS Architecture &amp; Shell</a>
-              <a href="#sec29-syntax" class="toc-link"><span class="toc-link-num">29.</span> Permissions &amp; Script Execution</a>
-              <a href="#sec31-arith" class="toc-link"><span class="toc-link-num">31.</span> Arithmetic Operators &amp; Calculations</a>
-              <a href="#sec34-cond" class="toc-link"><span class="toc-link-num">34.</span> Conditional Testing &amp; Operators</a>
-              <a href="#sec37-func" class="toc-link"><span class="toc-link-num">37.</span> Functions, Local Scope &amp; Exit Codes</a>
-              <a href="#sec40-progs" class="toc-link"><span class="toc-link-num">40.</span> 10 Practical Production Shell Scripts</a>
-            </div>
-          </div>
-          <div class="toc-group collapsed" id="groupSOHOCore">
-            <button class="toc-group-header" type="button" aria-expanded="false">
-              <div class="toc-group-header-left">
-                <span class="toc-group-title">PART II • SOHO Network Security</span>
+                <span class="toc-group-title">PART I • CLI Diagnostics &amp; OS Triage</span>
                 <span class="toc-group-count">4 Topics</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#it5-soho-gateway" class="toc-link"><span class="toc-link-num">41.</span> SOHO Gateway &amp; DHCP DORA</a>
-              <a href="#it5-nat-pat" class="toc-link"><span class="toc-link-num">42.</span> NAT vs PAT Socket Translation</a>
-              <a href="#it5-wifi-security" class="toc-link"><span class="toc-link-num">43.</span> Wireless Security: WPA2 vs WPA3 SAE</a>
-              <a href="#it5-firewall-dmz" class="toc-link"><span class="toc-link-num">44.</span> SPI Firewalls, Port Forwarding &amp; DMZ</a>
+              <a href="#sec13" class="toc-link"><span class="toc-link-num">01.</span> Administrative CLI (CMD &amp; PowerShell)</a>
+              <a href="#sec28-bash" class="toc-link"><span class="toc-link-num">02.</span> Linux &amp; macOS Architecture Overview</a>
+              <a href="#sec29-syntax" class="toc-link"><span class="toc-link-num">03.</span> CLI File Permissions &amp; chmod Execution</a>
+              <a href="#it5-soho-gateway" class="toc-link"><span class="toc-link-num">04.</span> Windows Network Triage &amp; IP Configuration</a>
             </div>
           </div>
           <div class="toc-group collapsed" id="groupLinuxPractice">
             <button class="toc-group-header" type="button" aria-expanded="false">
               <div class="toc-group-header-left">
-                <span class="toc-group-title">PART III • Unit 05 Assessment</span>
+                <span class="toc-group-title">PART II • Unit 05 Assessment</span>
                 <span class="toc-group-count">39 Problems</span>
               </div>
               <i data-lucide="chevron-down" class="toc-chevron"></i>
             </button>
             <div class="toc-group-body">
-              <a href="#practice-mcq-u3" class="toc-link"><span class="toc-link-num">45.</span> Linux MCQ Bank (30 Qs)</a>
-              <a href="#practice-subj-short-u3" class="toc-link"><span class="toc-link-num">46.</span> Linux Conceptual Q&amp;A</a>
-              <a href="#practice-subj-long-u3" class="toc-link"><span class="toc-link-num">47.</span> Linux Analytical Scenarios</a>
+              <a href="#practice-mcq-u5" class="toc-link"><span class="toc-link-num">05.</span> OS Troubleshooting MCQ Bank (30 Qs)</a>
+              <a href="#practice-subj-short-u5" class="toc-link"><span class="toc-link-num">06.</span> Command Line Conceptual Q&amp;A</a>
+              <a href="#practice-subj-long-u5" class="toc-link"><span class="toc-link-num">07.</span> OS Triage &amp; Recovery Scenarios</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 06: LAB PRACTICUM
+           UNIT 06: SCRIPTING, REMOTE SUPPORT, AND SAFETY
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit6Labs">
+      <div class="toc-unit collapsed" id="tocUnit6Script">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
             <span class="toc-unit-badge">UNIT 06</span>
-            <span class="toc-unit-title">Hands-On Laboratory Manual</span>
+            <span class="toc-unit-title">Scripting, Remote Support &amp; Safety</span>
+          </div>
+          <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
+        </button>
+        <div class="toc-unit-body">
+          <div class="toc-group" id="groupScriptCore">
+            <button class="toc-group-header" type="button" aria-expanded="true">
+              <div class="toc-group-header-left">
+                <span class="toc-group-title">PART I • Mobile Security &amp; Scripting</span>
+                <span class="toc-group-count">6 Topics</span>
+              </div>
+              <i data-lucide="chevron-down" class="toc-chevron"></i>
+            </button>
+            <div class="toc-group-body">
+              <a href="#it6-mobile-security" class="toc-link"><span class="toc-link-num">01.</span> Mobile OS Security &amp; Sandboxing</a>
+              <a href="#it6-scripting-languages" class="toc-link"><span class="toc-link-num">02.</span> Batch, PowerShell &amp; Python 3 Basics</a>
+              <a href="#sec31-arith" class="toc-link"><span class="toc-link-num">03.</span> Bash Arithmetic, Input &amp; Arrays</a>
+              <a href="#sec34-cond" class="toc-link"><span class="toc-link-num">04.</span> Conditional Testing &amp; Loops</a>
+              <a href="#sec37-func" class="toc-link"><span class="toc-link-num">05.</span> Functions, Scope &amp; Signal Traps</a>
+              <a href="#sec40-progs" class="toc-link"><span class="toc-link-num">06.</span> 10 Production Automation Problem Scripts</a>
+            </div>
+          </div>
+          <div class="toc-group collapsed" id="groupPerimeterCore">
+            <button class="toc-group-header" type="button" aria-expanded="false">
+              <div class="toc-group-header-left">
+                <span class="toc-group-title">PART II • Remote Support, Safety &amp; Exams</span>
+                <span class="toc-group-count">3 Topics</span>
+              </div>
+              <i data-lucide="chevron-down" class="toc-chevron"></i>
+            </button>
+            <div class="toc-group-body">
+              <a href="#it6-remote-support-communication" class="toc-link"><span class="toc-link-num">07.</span> Remote Access Tools &amp; Professionalism</a>
+              <a href="#it6-safety-operational" class="toc-link"><span class="toc-link-num">08.</span> Safety, ESD Controls &amp; 3-2-1 Backups</a>
+              <a href="#practice-mcq-u6" class="toc-link"><span class="toc-link-num">09.</span> Unit 06 Practice Examination Bank (39 Problems)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           HANDS-ON LABORATORY MANUAL
+           ========================================== -->
+      <div class="toc-unit collapsed" id="tocUnitItLabs">
+        <button class="toc-unit-header" type="button" aria-expanded="false">
+          <div class="toc-unit-header-left">
+            <i data-lucide="flask-conical" style="width: 15px; height: 15px; color: #10b981; margin-right: 0.35rem;"></i>
+            <span class="toc-unit-title">Practical Hands-on Lab Manual</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -357,31 +392,31 @@ TOC_HTML = """
       </div>
 
       <!-- ==========================================
-           UNIT 07: SIMULATORS & SANDBOXES
+           ENGINEERING SIMULATORS & DUAL CLI
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit7Sims">
+      <div class="toc-unit collapsed" id="tocUnitItSims">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 07</span>
-            <span class="toc-unit-title">Engineering Simulators &amp; CLI</span>
+            <i data-lucide="terminal" style="width: 15px; height: 15px; color: #f59e0b; margin-right: 0.35rem;"></i>
+            <span class="toc-unit-title">Engineering Simulators &amp; Dual CLI</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
         <div class="toc-unit-body">
           <div class="toc-group-body">
-            <a href="#it-sims" class="toc-link"><span class="toc-link-num">49.</span> 16 Interactive Tools &amp; Dual Terminal</a>
+            <a href="#it-sims" class="toc-link"><span class="toc-link-num">49.</span> Calculators &amp; Interactive Terminal</a>
           </div>
         </div>
       </div>
 
       <!-- ==========================================
-           UNIT 08: COMPREHENSIVE EXAM BANK
+           COMPREHENSIVE FINAL EXAM BANK
            ========================================== -->
-      <div class="toc-unit collapsed" id="tocUnit8Exam">
+      <div class="toc-unit collapsed" id="tocUnitItExam">
         <button class="toc-unit-header" type="button" aria-expanded="false">
           <div class="toc-unit-header-left">
-            <span class="toc-unit-badge">UNIT 08</span>
-            <span class="toc-unit-title">Final Examination Bank</span>
+            <i data-lucide="award" style="width: 15px; height: 15px; color: #ec4899; margin-right: 0.35rem;"></i>
+            <span class="toc-unit-title">Master Comprehensive Exam Bank</span>
           </div>
           <i data-lucide="chevron-down" class="toc-unit-chevron"></i>
         </button>
@@ -398,28 +433,116 @@ TOC_HTML = """
 # 4. Assemble the Main Document
 FULL_MAIN = f"""
   <main class="document-wrapper">
-    <!-- UNIT 01: COMPUTER HARDWARE & MOTHERBOARDS -->
+    <!-- ======================================================================
+         COURSE OVERVIEW & 6-UNIT CURRICULUM SYLLABUS BANNER
+         ====================================================================== -->
+    <article class="doc-page" id="curriculum-overview" style="margin-bottom: 2rem; border-left: 4px solid var(--primary); background: var(--bg-surface); padding: 1.5rem 1.75rem; border-radius: 12px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-subtle); border-left: 4px solid var(--primary);">
+      <div class="page-header-meta" style="margin-bottom: 0.75rem;">
+        <span class="meta-tag" style="background: rgba(37, 99, 235, 0.15); color: var(--primary); font-weight: 800;">CSC104 • OFFICIAL 6-UNIT SYLLABUS</span>
+        <span class="meta-tag">30 Lecture Hours</span>
+        <span class="meta-tag">10 Laboratory Experiments</span>
+        <span class="meta-tag">Credits: 04</span>
+      </div>
+
+      <h1 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        IT Fundamentals &amp; Computer Architecture (CSC104)
+      </h1>
+      <p class="lead-para" style="margin-bottom: 1.25rem; font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+        Welcome to the comprehensive IT Fundamentals knowledge portal. This course covers the official 6-unit syllabus and 30-lecture curriculum conforming to NBA/NAAC outcome-based engineering standards. Jump directly to any unit, practical lab, or interactive engineering simulator below:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+        <a href="#it1-formfactors" style="text-decoration:none; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-page); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-subtle)'">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #10b981;">UNIT 01</span>
+            <span style="font-size: 10px; color: var(--text-subtle); font-family: var(--font-mono);">Lectures 1–5</span>
+          </div>
+          <strong style="color: var(--text-main); font-size: 13px;">PC Hardware and Configuration</strong>
+          <span style="color: var(--text-muted); font-size: 11px; line-height: 1.4;">Cables (USB, HDMI, DP, TB4, SATA), Motherboards, CPUs, RAM, PSUs, POST errors &amp; overheating.</span>
+        </a>
+
+        <a href="#it2-topologies" style="text-decoration:none; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-page); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-subtle)'">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #3b82f6;">UNIT 02</span>
+            <span style="font-size: 10px; color: var(--text-subtle); font-family: var(--font-mono);">Lectures 6–10</span>
+          </div>
+          <strong style="color: var(--text-main); font-size: 13px;">Networking Fundamentals</strong>
+          <span style="color: var(--text-muted); font-size: 11px; line-height: 1.4;">LAN/WAN/PAN, hardware, IPv4/IPv6, CIDR subnetting, TCP/IP, DHCP, DNS, NAT, virtualization &amp; cloud.</span>
+        </a>
+
+        <a href="#it3-mobile" style="text-decoration:none; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-page); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-subtle)'">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #8b5cf6;">UNIT 03</span>
+            <span style="font-size: 10px; color: var(--text-subtle); font-family: var(--font-mono);">Lectures 11–15</span>
+          </div>
+          <strong style="color: var(--text-main); font-size: 13px;">Mobile and Peripheral Devices</strong>
+          <span style="color: var(--text-muted); font-size: 11px; line-height: 1.4;">Laptops, peripherals, printers (laser, inkjet, thermal, impact), queues, SOHO routers &amp; WPA3 wireless.</span>
+        </a>
+
+        <a href="#sec1" style="text-decoration:none; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-page); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-subtle)'">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #ec4899;">UNIT 04</span>
+            <span style="font-size: 10px; color: var(--text-subtle); font-family: var(--font-mono);">Lectures 16–20</span>
+          </div>
+          <strong style="color: var(--text-main); font-size: 13px;">Security and System Protection</strong>
+          <span style="color: var(--text-muted); font-size: 11px; line-height: 1.4;">OS types, Windows architecture stack, clean installs, user profiles, NTFS permissions, Defender &amp; Registry.</span>
+        </a>
+
+        <a href="#sec13" style="text-decoration:none; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-page); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-subtle)'">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #f59e0b;">UNIT 05</span>
+            <span style="font-size: 10px; color: var(--text-subtle); font-family: var(--font-mono);">Lectures 21–25</span>
+          </div>
+          <strong style="color: var(--text-main); font-size: 13px;">OS Troubleshooting and Command Line</strong>
+          <span style="color: var(--text-muted); font-size: 11px; line-height: 1.4;">Boot failures, BSODs, Windows networking, firewall rules, RDP, macOS/Linux features &amp; chmod.</span>
+        </a>
+
+        <a href="#it6-mobile-security" style="text-decoration:none; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-page); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-subtle)'">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #06b6d4;">UNIT 06</span>
+            <span style="font-size: 10px; color: var(--text-subtle); font-family: var(--font-mono);">Lectures 26–30</span>
+          </div>
+          <strong style="color: var(--text-main); font-size: 13px;">Scripting, Remote Support, and Safety</strong>
+          <span style="color: var(--text-muted); font-size: 11px; line-height: 1.4;">Mobile security, biometrics, remote wipe, scripting (batch, PowerShell, Python), ESD &amp; 3-2-1 backups.</span>
+        </a>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
+        <a href="#it-labs" class="btn-tool active" style="text-decoration:none; font-size: 11px; padding: 0.35rem 0.75rem;"><i data-lucide="flask-conical" style="width:13px;height:13px;"></i> 10 Practical Labs &amp; Viva</a>
+        <a href="#it-sims" class="btn-tool" style="text-decoration:none; font-size: 11px; padding: 0.35rem 0.75rem;"><i data-lucide="terminal" style="width:13px;height:13px;"></i> 4 Simulators &amp; Live CLI</a>
+        <a href="#it-exam" class="btn-tool" style="text-decoration:none; font-size: 11px; padding: 0.35rem 0.75rem;"><i data-lucide="award" style="width:13px;height:13px;"></i> Comprehensive Final Exam Bank</a>
+        <a href="../index.html" class="btn-tool" style="text-decoration:none; font-size: 11px; padding: 0.35rem 0.75rem;"><i data-lucide="arrow-left" style="width:13px;height:13px;"></i> Master Academic Hub</a>
+      </div>
+    </article>
+
+    <!-- UNIT 01: PC HARDWARE AND CONFIGURATION -->
     {IT_UNIT1_HTML}
 
-    <!-- UNIT 02: NETWORKING TOPOLOGIES & PROTOCOLS -->
+    <!-- UNIT 02: NETWORKING FUNDAMENTALS -->
     {IT_UNIT2_HTML}
 
-    <!-- UNIT 03: MOBILE & PERIPHERALS -->
+    <!-- UNIT 03: MOBILE AND PERIPHERAL DEVICES -->
     {IT_UNIT3_HTML}
 
-    <!-- UNIT 04 & 05: OPERATING SYSTEM NT & LINUX ARTICLES (sec1 to sec40) -->
-    {ext_main}
+    <!-- UNIT 04: SECURITY AND SYSTEM PROTECTION -->
+    {IT_UNIT4_HTML}
 
-    <!-- SOHO SECURITY (PART OF UNIT 05) -->
+    <!-- UNIT 05: OS TROUBLESHOOTING AND COMMAND LINE -->
+    {IT_UNIT5_HTML}
+
+    <!-- SOHO GATEWAY & PERIMETER SECURITY -->
     {IT_SOHO_HTML}
 
-    <!-- UNIT 06: HANDS-ON LABORATORY PRACTICUM -->
+    <!-- UNIT 06: SCRIPTING, REMOTE SUPPORT, AND SAFETY -->
+    {IT_UNIT6_HTML}
+
+    <!-- HANDS-ON LABORATORY PRACTICUM -->
     {IT_LABS_HTML}
 
-    <!-- UNIT 07: ENGINEERING SIMULATORS & DUAL CLI SANDBOXES -->
+    <!-- ENGINEERING SIMULATORS & DUAL CLI SANDBOXES -->
     {IT_SIMS_HTML}
 
-    <!-- UNIT 08: COMPREHENSIVE FINAL EXAM BANK -->
+    <!-- MASTER COMPREHENSIVE FINAL EXAMINATION BANK -->
     {IT_EXAM_HTML}
   </main>
 """
@@ -586,7 +709,7 @@ FULL_HTML = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IT Fundamentals (CSC104) — Master Engineering & Knowledge Portal</title>
+  <title>IT Fundamentals (CSC104) — Official 6-Unit Curriculum &amp; Knowledge Portal</title>
   {head_content}
 </head>
 <body>

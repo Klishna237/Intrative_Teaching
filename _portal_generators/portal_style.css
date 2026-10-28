@@ -608,6 +608,31 @@
       color: var(--box-tip-text);
     }
 
+    .callout-deep {
+      border-left-color: var(--primary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--primary);
+      color: var(--text-normal);
+    }
+
+    .callout-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-transform: uppercase;
+    }
+
+    .callout-body {
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
     .callout-alert {
       border-left-color: var(--box-alert-border);
       background: var(--box-alert-bg);
@@ -1088,6 +1113,21 @@
       border-radius: 4px;
       background: var(--primary);
       color: #ffffff;
+    }
+
+    .subj-q-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid currentColor;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .subj-chevron {
