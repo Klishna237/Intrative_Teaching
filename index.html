@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department of Computer Science & Engineering — B.Tech CSE (Cyber Security) Master Knowledge Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+    :root[data-theme="emerald"] {
+      --accent-main: #10b981;
+      --accent-hover: #059669;
+      --accent-text: #34d399;
+      --accent-glow: rgba(16, 185, 129, 0.2);
+      --accent-subtle: rgba(16, 185, 129, 0.08);
+      --accent-border: rgba(16, 185, 129, 0.3);
+    }
+    :root[data-theme="cyan"] {
+      --accent-main: #06b6d4;
+      --accent-hover: #0891b2;
+      --accent-text: #22d3ee;
+      --accent-glow: rgba(6, 182, 212, 0.2);
+      --accent-subtle: rgba(6, 182, 212, 0.08);
+      --accent-border: rgba(6, 182, 212, 0.3);
+    }
+    :root[data-theme="violet"] {
+      --accent-main: #8b5cf6;
+      --accent-hover: #7c3aed;
+      --accent-text: #a78bfa;
+      --accent-glow: rgba(139, 92, 246, 0.2);
+      --accent-subtle: rgba(139, 92, 246, 0.08);
+      --accent-border: rgba(139, 92, 246, 0.3);
+    }
+    :root[data-theme="amber"] {
+      --accent-main: #f59e0b;
+      --accent-hover: #d97706;
+      --accent-text: #fbbf24;
+      --accent-glow: rgba(245, 158, 11, 0.2);
+      --accent-subtle: rgba(245, 158, 11, 0.08);
+      --accent-border: rgba(245, 158, 11, 0.3);
+    }
+
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    .theme-accent-bg { background-color: var(--accent-main); }
+    .theme-accent-text { color: var(--accent-text); }
+    .theme-accent-border { border-color: var(--accent-border); }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen antialiased bg-grid-pattern selection:bg-emerald-500 selection:text-black">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl theme-accent-bg flex items-center justify-center text-black font-black text-sm shadow-lg">
+          CSE
+        </div>
+        <div>
+          <div class="text-xs font-black tracking-widest uppercase text-white">
+            Department of Computer Science & Engineering
+          </div>
+          <p class="text-[11px] text-zinc-400 font-mono">Department of Computer Science & Engineering • Cyber Security</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- THEME COLOR PICKER -->
+        <div class="flex items-center gap-1.5 bg-zinc-900/80 px-2.5 py-1.5 rounded-xl border border-zinc-800 text-xs">
+          <span class="text-zinc-500 font-mono text-[11px]">Theme:</span>
+          <button onclick="setTheme('emerald')" title="Emerald" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition"></button>
+          <button onclick="setTheme('cyan')" title="Cyan" class="w-4 h-4 rounded-full bg-cyan-500 hover:scale-110 transition"></button>
+          <button onclick="setTheme('violet')" title="Violet" class="w-4 h-4 rounded-full bg-purple-500 hover:scale-110 transition"></button>
+          <button onclick="setTheme('amber')" title="Amber" class="w-4 h-4 rounded-full bg-amber-500 hover:scale-110 transition"></button>
+        </div>
+        <span class="text-xs font-mono px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400">
+          Semester III • 2026 Curriculum
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HERO SECTION -->
+  <main class="max-w-7xl mx-auto p-5 md:p-10 space-y-16">
+    
+    <!-- HERO BANNER -->
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-900/90 to-zinc-950 border border-zinc-800 p-8 md:p-14 shadow-2xl">
+      <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-5">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            Unified Academic Hub
+          </span>
+          <span class="px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700">
+            3 Master Portals
+          </span>
+          <span class="px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+            90 In-Depth Topics • 30 Enterprise Labs • 544 Interactive MCQs
+          </span>
+        </div>
+
+        <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Enterprise Systems & <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400">Cloud Infrastructure</span> Portals
+        </h1>
+
+        <p class="text-zinc-400 max-w-3xl text-sm md:text-base leading-relaxed">
+          The unified digital textbook, laboratory simulation engine, and examination mastery suite for Core computer systems coursework. Access comprehensive course notes, authentic CLI sandboxes, interactive architectural calculators, and model examination answers across all three subjects.
+        </p>
+
+        <!-- GLOBAL STATS COUNTER -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-6 border-t border-zinc-800/80">
+          <div class="bg-zinc-950/70 p-4 rounded-xl border border-zinc-800">
+            <div class="text-2xl font-black text-emerald-400 font-mono">03</div>
+            <div class="text-xs text-zinc-400">Master Portals</div>
+          </div>
+          <div class="bg-zinc-950/70 p-4 rounded-xl border border-zinc-800">
+            <div class="text-2xl font-black text-cyan-400 font-mono">90</div>
+            <div class="text-xs text-zinc-400">Detailed Lectures</div>
+          </div>
+          <div class="bg-zinc-950/70 p-4 rounded-xl border border-zinc-800">
+            <div class="text-2xl font-black text-purple-400 font-mono">30</div>
+            <div class="text-xs text-zinc-400">Hands-on Labs</div>
+          </div>
+          <div class="bg-zinc-950/70 p-4 rounded-xl border border-zinc-800">
+            <div class="text-2xl font-black text-amber-400 font-mono">544</div>
+            <div class="text-xs text-zinc-400">Practice Bank MCQs</div>
+          </div>
+          <div class="bg-zinc-950/70 p-4 rounded-xl border border-zinc-800 col-span-2 sm:col-span-1">
+            <div class="text-2xl font-black text-rose-400 font-mono">100%</div>
+            <div class="text-xs text-zinc-400">Offline Standalone</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE THREE MASTER PORTAL CARDS -->
+    <div class="space-y-6">
+      <div class="border-b border-zinc-800 pb-3 flex items-center justify-between">
+        <h2 class="text-xl md:text-2xl font-extrabold text-white flex items-center gap-2.5">
+          <span>📚</span> Course Digital Portals
+        </h2>
+        <span class="text-xs text-zinc-500 font-mono">Click any card to launch full interactive portal</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- CARD 1: IT FUNDAMENTALS -->
+        <a href="IT_Fundamentals_Portal/index.html" class="group flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/50 hover:bg-zinc-900/90 transition shadow-xl space-y-6 relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-emerald-500/10 blur-2xl group-hover:scale-150 transition"></div>
+          <div class="space-y-4 relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 font-mono font-black text-sm flex items-center justify-center border border-emerald-500/30">
+                IT
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-zinc-800 text-zinc-400">Course Code: CSE-IT300</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition">
+                IT Fundamentals Portal
+              </h3>
+              <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+                Core PC hardware, motherboard topologies, PCIe bus physics, OSI & TCP/IP models, SOHO router setups, Windows administration consoles, Linux file permissions, and CompTIA 7-step malware forensics.
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs text-zinc-300 font-mono pt-2 border-t border-zinc-800/80">
+              <div class="flex items-center justify-between"><span>Curriculum:</span> <span class="text-emerald-400">30 In-Depth Topics</span></div>
+              <div class="flex items-center justify-between"><span>Hands-on Labs:</span> <span class="text-zinc-200">10 Lab Manuals &amp; Viva</span></div>
+              <div class="flex items-center justify-between"><span>Interactive Tools:</span> <span class="text-zinc-200">16 Simulators + Dual CLI</span></div>
+              <div class="flex items-center justify-between"><span>MCQ Bank:</span> <span class="text-zinc-200">184 Interactive MCQs (Score Engine)</span></div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold text-emerald-400">
+            <span>Launch IT Portal &rarr;</span>
+            <span class="text-[11px] text-zinc-500 font-mono font-normal">Single-file Offline SPA</span>
+          </div>
+        </a>
+
+        <!-- CARD 2: CLOUD ADMINISTRATION (AWS) -->
+        <a href="Cloud_Administration_Portal/index.html" class="group flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-cyan-500/50 hover:bg-zinc-900/90 transition shadow-xl space-y-6 relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-cyan-500/10 blur-2xl group-hover:scale-150 transition"></div>
+          <div class="space-y-4 relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 font-mono font-black text-sm flex items-center justify-center border border-cyan-500/30">
+                AWS
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-zinc-800 text-zinc-400">Course Code: CSE-CA301</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition">
+                Cloud Administration Portal
+              </h3>
+              <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+                Amazon Web Services (AWS) infrastructure: EC2 Nitro compute, serverless Lambda, S3 11 9's storage tiering, RDS Multi-AZ, DynamoDB, custom VPC CIDR subnets, Stateful SGs vs Stateless NACLs, IAM least-privilege, and FinOps.
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs text-zinc-300 font-mono pt-2 border-t border-zinc-800/80">
+              <div class="flex items-center justify-between"><span>Curriculum:</span> <span class="text-cyan-400">30 In-Depth Topics (Units 1–6)</span></div>
+              <div class="flex items-center justify-between"><span>Hands-on Labs:</span> <span class="text-zinc-200">10 Lab Manuals &amp; Viva</span></div>
+              <div class="flex items-center justify-between"><span>Interactive Tools:</span> <span class="text-zinc-200">Subnet Calc, Aurora Quorum &amp; AWS CLI</span></div>
+              <div class="flex items-center justify-between"><span>MCQ Bank:</span> <span class="text-zinc-200">180 Interactive MCQs (Score Engine)</span></div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold text-cyan-400">
+            <span>Launch Cloud Portal &rarr;</span>
+            <span class="text-[11px] text-zinc-500 font-mono font-normal">Single-file Offline SPA</span>
+          </div>
+        </a>
+
+        <!-- CARD 3: SERVER ADMINISTRATION -->
+        <a href="Server_Administration_Portal/index.html" class="group flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-purple-500/50 hover:bg-zinc-900/90 transition shadow-xl space-y-6 relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-purple-500/10 blur-2xl group-hover:scale-150 transition"></div>
+          <div class="space-y-4 relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 font-mono font-black text-sm flex items-center justify-center border border-purple-500/30">
+                SRV
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-zinc-800 text-zinc-400">Course Code: CSE-SA302</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition">
+                Server Administration Portal
+              </h3>
+              <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+                Enterprise server engineering: 1U-4U Rack and Blade hardware, multi-socket NUMA, Registered SECDED ECC RAM, Type-1 hypervisors, Active Directory 5 FSMO roles, RAID 0/1/5/6/10 mathematical parity, and Five Nines SLAs.
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs text-zinc-300 font-mono pt-2 border-t border-zinc-800/80">
+              <div class="flex items-center justify-between"><span>Curriculum:</span> <span class="text-purple-400">30 In-Depth Topics (Units 1–6)</span></div>
+              <div class="flex items-center justify-between"><span>Hands-on Labs:</span> <span class="text-zinc-200">10 Lab Manuals &amp; Viva</span></div>
+              <div class="flex items-center justify-between"><span>Interactive Tools:</span> <span class="text-zinc-200">RAID Sizer, IOPS Calc &amp; Dual CLI</span></div>
+              <div class="flex items-center justify-between"><span>MCQ Bank:</span> <span class="text-zinc-200">180 Interactive MCQs (Score Engine)</span></div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold text-purple-400">
+            <span>Launch Server Portal &rarr;</span>
+            <span class="text-[11px] text-zinc-500 font-mono font-normal">Single-file Offline SPA</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CURRICULUM SYLLABUS FILES & QUICK DOWNLOADS -->
+    <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span>📁</span> Official Curriculum Syllabus Documents & Resources
+        </h2>
+        <span class="text-xs text-zinc-500 font-mono">Computer Science & Engineering Syllabi</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono">
+        <a href="IT Fundamentals (Lecture Plan).pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-emerald-400">📄</span>
+            <span class="text-zinc-300 font-sans">IT Fundamentals Lecture Plan</span>
+          </div>
+          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
+        </a>
+
+        <a href="IT_Fundamentals_CommandCheatSheet.pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-emerald-400">⚡</span>
+            <span class="text-zinc-300 font-sans">IT Command Cheat Sheet</span>
+          </div>
+          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
+        </a>
+
+        <a href="Cloud Administration (Lesson Plan).pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-cyan-500/40 transition flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-cyan-400">📄</span>
+            <span class="text-zinc-300 font-sans">Cloud Administration Lesson Plan</span>
+          </div>
+          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
+        </a>
+
+        <a href="Cloud Administration.docx" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-cyan-500/40 transition flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-cyan-400">📘</span>
+            <span class="text-zinc-300 font-sans">Cloud Administration DOCX</span>
+          </div>
+          <span class="text-[10px] text-zinc-500 uppercase">DOCX</span>
+        </a>
+
+        <a href="Server Administration (Lesson Plan).pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-purple-500/40 transition flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-purple-400">📄</span>
+            <span class="text-zinc-300 font-sans">Server Administration Lesson Plan</span>
+          </div>
+          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
+        </a>
+
+        <a href="Server Administration.docx" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-purple-500/40 transition flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-purple-400">📘</span>
+            <span class="text-zinc-300 font-sans">Server Administration DOCX</span>
+          </div>
+          <span class="text-[10px] text-zinc-500 uppercase">DOCX</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BLOOM'S TAXONOMY & CO-PO MATRIX -->
+    <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-4">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span>🎯</span> Curriculum Accreditation & Bloom's Taxonomy Alignment
+        </h2>
+        <span class="text-xs text-zinc-500 font-mono">NBA / NAAC Compliance</span>
+      </div>
+      <p class="text-xs text-zinc-400 leading-relaxed">
+        All 3 curricula are designed according to Bloom's Revised Taxonomy levels: <strong>Remember (Level 1)</strong>, <strong>Understand (Level 2)</strong>, <strong>Apply (Level 3)</strong>, <strong>Analyze (Level 4)</strong>, and <strong>Evaluate (Level 5)</strong>. Students progress from foundational hardware/network identification into deploying enterprise cloud architectures, implementing RAID fault tolerance, hardening zero-trust security postures, and resolving system crash dump forensics.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-zinc-800/80 py-8 text-center text-xs text-zinc-500 font-mono">
+    Department of Computer Science & Engineering • B.Tech CSE Cyber Security
+  </footer>
+
+  <script>
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cu_master_theme', theme);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('cu_master_theme') || 'emerald';
+      setTheme(saved);
+    });
+  </script>
+</body>
+</html>
