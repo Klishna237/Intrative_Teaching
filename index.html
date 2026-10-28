@@ -264,63 +264,555 @@
       </div>
     </div>
 
-    <!-- CURRICULUM SYLLABUS FILES & QUICK DOWNLOADS -->
-    <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6">
-      <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-        <h2 class="text-base font-bold text-white flex items-center gap-2">
-          <span>📁</span> Official Curriculum Syllabus Documents & Resources
-        </h2>
-        <span class="text-xs text-zinc-500 font-mono">Computer Science & Engineering Syllabi</span>
+    <!-- CURRICULUM SYLLABI & HANDS-ON PRACTICAL LISTS (ALL 3 SUBJECTS) -->
+    <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6" id="syllabiSection">
+      <!-- Section Header with Interactive Subject Switcher -->
+      <div class="flex flex-wrap items-center justify-between border-b border-zinc-800 pb-4 gap-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>📋</span> Academic Syllabi &amp; 30 Practical Experiment Lists
+          </h2>
+          <p class="text-xs text-zinc-400 mt-1">Official course outlines, unit lecture breakdowns, and comprehensive laboratory practicums across all three subjects</p>
+        </div>
+
+        <!-- Subject Switcher Pills -->
+        <div class="flex items-center gap-1.5 bg-zinc-950 p-1.5 rounded-xl border border-zinc-800 text-xs font-mono">
+          <button onclick="switchSyllabusTab('it')" id="tabBtn_it" class="px-3.5 py-1.5 rounded-lg font-bold transition text-emerald-400 bg-emerald-500/10 border border-emerald-500/30">
+            💻 IT Fundamentals (CSC104)
+          </button>
+          <button onclick="switchSyllabusTab('cloud')" id="tabBtn_cloud" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">
+            ☁️ Cloud Administration (CSC205)
+          </button>
+          <button onclick="switchSyllabusTab('server')" id="tabBtn_server" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">
+            🖥️ Server Administration (CSC204)
+          </button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono">
-        <a href="IT Fundamentals (Lecture Plan).pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-emerald-400">📄</span>
-            <span class="text-zinc-300 font-sans">IT Fundamentals Lecture Plan</span>
+      <!-- ======================================================================
+           PANEL 1: IT FUNDAMENTALS (CSC104)
+           ====================================================================== -->
+      <div id="syllabusPanel_it" class="space-y-6">
+        <!-- Course Header Specs & Outcomes -->
+        <div class="bg-zinc-950/80 rounded-xl p-4 md:p-5 border border-zinc-800 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 pb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">CSC104</span>
+              <h3 class="text-sm font-bold text-white">IT Fundamentals &amp; Computer Architecture</h3>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-mono text-zinc-400">
+              <span>Credits: <strong class="text-emerald-400">04</strong></span>
+              <span>•</span>
+              <span>Theory: <strong>30 Lecture Hours</strong></span>
+              <span>•</span>
+              <span>Practicals: <strong>10 Mandated Labs</strong></span>
+            </div>
           </div>
-          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
-        </a>
+          <!-- Course Outcomes Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 text-[11px] font-mono">
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-emerald-400 font-bold">CO1 (Remember):</span> Identify PC hardware, motherboard form factors &amp; RAM</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-emerald-400 font-bold">CO2 (Apply/Analyze):</span> Troubleshoot hardware, network cabling &amp; OS boot</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-emerald-400 font-bold">CO3 (Apply):</span> Configure Windows, Linux &amp; macOS system environments</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-emerald-400 font-bold">CO4 (Evaluate):</span> Implement host, endpoint &amp; SOHO wireless security</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-emerald-400 font-bold">CO5 (Evaluate):</span> Apply virtualization &amp; cloud infrastructure management</div>
+          </div>
+        </div>
 
-        <a href="IT_Fundamentals_CommandCheatSheet.pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-emerald-400">⚡</span>
-            <span class="text-zinc-300 font-sans">IT Command Cheat Sheet</span>
-          </div>
-          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
-        </a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left: 5 Units Theory Syllabus -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center justify-between">
+              <span>📖 Theory Syllabus (5 Units • 30 Lectures)</span>
+              <a href="IT_Fundamentals_Portal/index.html" class="text-[11px] text-zinc-400 hover:text-emerald-400 transition font-normal">Launch Portal &rarr;</a>
+            </h4>
+            <div class="space-y-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 1: Computer Hardware &amp; Troubleshooting</span>
+                  <span class="text-emerald-400 font-mono text-[10px]">Lectures 1–5</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Motherboards, ATX/ITX form factors, LGA/PGA CPU sockets, DDR4/DDR5 RAM latency math, SMPS power rails, NVMe/SATA storage, BIOS/UEFI boot stages, and POST error diagnosis.</p>
+              </div>
 
-        <a href="Cloud Administration (Lesson Plan).pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-cyan-500/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-cyan-400">📄</span>
-            <span class="text-zinc-300 font-sans">Cloud Administration Lesson Plan</span>
-          </div>
-          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
-        </a>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 2: Networking Fundamentals &amp; Virtualization</span>
+                  <span class="text-emerald-400 font-mono text-[10px]">Lectures 6–10</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Topologies (Star, Mesh, Hybrid), Cat5e-Cat8 cabling, T568A/B crimping, L2 switching vs L3 routing, OSI 7-layer vs TCP/IP encapsulation, IPv4 CIDR subnetting, Type-2 hypervisors.</p>
+              </div>
 
-        <a href="Cloud Administration.docx" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-cyan-500/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-cyan-400">📘</span>
-            <span class="text-zinc-300 font-sans">Cloud Administration DOCX</span>
-          </div>
-          <span class="text-[10px] text-zinc-500 uppercase">DOCX</span>
-        </a>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 3: Mobile Devices &amp; Peripheral Support</span>
+                  <span class="text-emerald-400 font-mono text-[10px]">Lectures 11–15</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Smartphone architectures, OLED vs LCD, battery maintenance, USB-C Power Delivery, laser printing 7-stage electrophotographic cycle, print defects analysis, and peripheral interfacing.</p>
+              </div>
 
-        <a href="Server Administration (Lesson Plan).pdf" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-purple-500/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-purple-400">📄</span>
-            <span class="text-zinc-300 font-sans">Server Administration Lesson Plan</span>
-          </div>
-          <span class="text-[10px] text-zinc-500 uppercase">PDF</span>
-        </a>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 4: Operating Systems &amp; Core Security</span>
+                  <span class="text-emerald-400 font-mono text-[10px]">Lectures 16–20</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Windows NT kernel architecture, Executive subsystems, HAL, Registry hives, process management, Windows Defender, NTFS permissions, and system recovery procedures.</p>
+              </div>
 
-        <a href="Server Administration.docx" target="_blank" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-purple-500/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-purple-400">📘</span>
-            <span class="text-zinc-300 font-sans">Server Administration DOCX</span>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 5: SOHO Security &amp; Operational Procedures</span>
+                  <span class="text-emerald-400 font-mono text-[10px]">Lectures 21–30</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">SOHO router configuration, WPA3 authentication, NAT/port forwarding, malware mitigation, incident reporting, professional ethics, safety, and integrated lab revision.</p>
+              </div>
+            </div>
           </div>
-          <span class="text-[10px] text-zinc-500 uppercase">DOCX</span>
-        </a>
+
+          <!-- Right: 10 Practical Experiments -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono flex items-center justify-between">
+              <span>🔬 10 Mandated Laboratory Practicals</span>
+              <a href="IT_Fundamentals_Portal/index.html#it-labs" class="text-[11px] text-zinc-400 hover:text-emerald-400 transition font-normal">View Interactive Lab &rarr;</a>
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 01</span>
+                <div>
+                  <strong class="text-zinc-200">Hardware Components Identification:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Inspection of motherboard, CPU socket, RAM DIMMs, storage buses, SMPS, and expansion slots.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 02</span>
+                <div>
+                  <strong class="text-zinc-200">System Diagnostics &amp; Specifications:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Auditing hardware specs using MSINFO32, Device Manager, Task Manager, and CLI.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 03</span>
+                <div>
+                  <strong class="text-zinc-200">BIOS/UEFI Firmware Configuration:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Modifying boot sequence, enabling Intel VT-x/AMD-V virtualization, and Secure Boot setup.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 04</span>
+                <div>
+                  <strong class="text-zinc-200">OS User &amp; NTFS Permission Management:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Creating user groups, configuring discretionary access control lists (DACLs) &amp; icacls.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 05</span>
+                <div>
+                  <strong class="text-zinc-200">Network TCP/IP Configuration:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Static/DHCP IP assignment, DNS resolution, and connectivity testing via ping, tracert &amp; arp.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 06</span>
+                <div>
+                  <strong class="text-zinc-200">Wireless SOHO Router Security:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Setting up SSID broadcast, WPA2/WPA3 enterprise encryption, DHCP pools, and admin isolation.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 07</span>
+                <div>
+                  <strong class="text-zinc-200">Printer Installation &amp; Queue Management:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Installing network printers via IPP/LPR, test page rendering, spooler clearing, and print defect triage.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 08</span>
+                <div>
+                  <strong class="text-zinc-200">Virtual Machine Provisioning:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Hypervisor installation (VirtualBox), guest OS deployment (Ubuntu Linux), and NAT networking.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 09</span>
+                <div>
+                  <strong class="text-zinc-200">Windows Security Hardening:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Inbound/outbound firewall rules, Windows Defender real-time protection, and Event Viewer security audits.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold">EXP 10</span>
+                <div>
+                  <strong class="text-zinc-200">System Maintenance &amp; Disaster Recovery:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Storage optimization, CHKDSK filesystem verification, System Restore points, and recovery images.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           PANEL 2: CLOUD ADMINISTRATION (CSC205)
+           ====================================================================== -->
+      <div id="syllabusPanel_cloud" class="space-y-6 hidden">
+        <!-- Course Header Specs & Outcomes -->
+        <div class="bg-zinc-950/80 rounded-xl p-4 md:p-5 border border-zinc-800 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 pb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold font-mono bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">CSC205</span>
+              <h3 class="text-sm font-bold text-white">Cloud Administration &amp; AWS Infrastructure</h3>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-mono text-zinc-400">
+              <span>Credits: <strong class="text-cyan-400">04</strong></span>
+              <span>•</span>
+              <span>Theory: <strong>45 Lecture Hours</strong></span>
+              <span>•</span>
+              <span>Practicals: <strong>10 Mandated Labs</strong></span>
+            </div>
+          </div>
+          <!-- Course Outcomes Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 text-[11px] font-mono">
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-cyan-400 font-bold">CO1 (Understand):</span> Explain cloud models (IaaS/PaaS/SaaS) &amp; AWS Global Infra</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-cyan-400 font-bold">CO2 (Apply):</span> Deploy EC2 instances, Auto Scaling &amp; Load Balancers</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-cyan-400 font-bold">CO3 (Analyze):</span> Configure Amazon S3 lifecycle, EBS volumes &amp; CloudFront</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-cyan-400 font-bold">CO4 (Evaluate):</span> Architect Amazon VPC, subnets, NAT &amp; security groups</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-cyan-400 font-bold">CO5 (Evaluate):</span> Implement IAM roles, KMS encryption &amp; CloudWatch observability</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left: 6 Units Theory Syllabus -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono flex items-center justify-between">
+              <span>📖 Theory Syllabus (6 Units • 30 Topics)</span>
+              <a href="Cloud_Administration_Portal/index.html" class="text-[11px] text-zinc-400 hover:text-cyan-400 transition font-normal">Launch Portal &rarr;</a>
+            </h4>
+            <div class="space-y-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 1: Cloud Concepts &amp; AWS Global Infrastructure</span>
+                  <span class="text-cyan-400 font-mono text-[10px]">Topics 01–05</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Delivery models (IaaS/PaaS/SaaS), Type-1/2 hypervisors, AWS Regions, Availability Zones, Edge Locations, AWS Shared Responsibility Model, and Cloud Economics (TCO/Capex vs Opex).</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 2: Cloud Compute &amp; Virtualization</span>
+                  <span class="text-cyan-400 font-mono text-[10px]">Topics 06–10</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Amazon EC2 instance families, On-Demand vs Spot vs Savings Plans, AWS Nitro offload silicon, Application Load Balancers (ALB), Auto Scaling Groups, and AWS Lambda serverless execution.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 3: Cloud Storage &amp; Content Delivery (CDN)</span>
+                  <span class="text-cyan-400 font-mono text-[10px]">Topics 11–15</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Amazon S3 storage tiers, Glacier lifecycle policies, object locking, EBS volume types (gp3, io2), EFS distributed POSIX filesystems, FSx Lustre, and Amazon CloudFront edge caching.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 4: Virtual Private Cloud (VPC) &amp; Networking</span>
+                  <span class="text-cyan-400 font-mono text-[10px]">Topics 16–20</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">VPC subnet design, public vs private subnets, Internet Gateways (IGW), NAT Gateways, Route Tables, stateful Security Groups vs stateless NACLs, Transit Gateway, and Site-to-Site VPN.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 5: Cloud Databases &amp; Big Data Analytics</span>
+                  <span class="text-cyan-400 font-mono text-[10px]">Topics 21–25</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Amazon RDS Multi-AZ synchronous replication, Amazon Aurora storage quorum, DynamoDB key-value partitioning, ElastiCache (Redis/Memcached), and big data pipelines (Redshift, Athena, EMR).</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 6: Cloud Security, IAM &amp; Cost Governance</span>
+                  <span class="text-cyan-400 font-mono text-[10px]">Topics 26–30</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">IAM least-privilege policies, STS assume-role tokens, KMS envelope encryption, CloudWatch monitoring &amp; alarms, CloudTrail audit trails, AWS WAF, and AWS Well-Architected Framework.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 10 Practical Experiments -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono flex items-center justify-between">
+              <span>🔬 10 Mandated Laboratory Practicals</span>
+              <a href="Cloud_Administration_Portal/index.html#cloud-labs-manual" class="text-[11px] text-zinc-400 hover:text-cyan-400 transition font-normal">View Interactive Lab &rarr;</a>
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 01</span>
+                <div>
+                  <strong class="text-zinc-200">AWS Identity &amp; Access Management (IAM):</strong>
+                  <span class="text-zinc-400 text-[11px]"> Creating IAM users, group RBAC, custom least-privilege JSON policies &amp; Virtual MFA.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 02</span>
+                <div>
+                  <strong class="text-zinc-200">Amazon EC2 Provisioning &amp; Web Stack:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Launching Linux AMI, SSH key pairs, security groups, and automated Nginx/Apache bootstrapping.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 03</span>
+                <div>
+                  <strong class="text-zinc-200">Auto Scaling &amp; Elastic Load Balancing:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Configuring ALB target groups, health probes, and dynamic CPU-based auto-scaling policies.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 04</span>
+                <div>
+                  <strong class="text-zinc-200">Amazon S3 Lifecycle &amp; Security Governance:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Bucket creation, cross-region replication, versioning, SSE-KMS encryption, and Glacier archival.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 05</span>
+                <div>
+                  <strong class="text-zinc-200">Amazon EBS Storage &amp; Snapshot Automation:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Attaching EBS gp3 volumes, filesystem partitioning, resizing, and Data Lifecycle Manager (DLM).</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 06</span>
+                <div>
+                  <strong class="text-zinc-200">Serverless Microservices with AWS Lambda:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Writing Python/Node.js serverless functions, configuring triggers, API Gateway, and CloudWatch logs.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 07</span>
+                <div>
+                  <strong class="text-zinc-200">Managed Databases with Amazon RDS:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Multi-AZ MySQL/PostgreSQL deployment, parameter groups, automated backups, and read replicas.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 08</span>
+                <div>
+                  <strong class="text-zinc-200">Container Deployment on Amazon ECS/EKS:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Building Docker container images, publishing to Amazon ECR, and deploying Fargate task definitions.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 09</span>
+                <div>
+                  <strong class="text-zinc-200">Amazon VPC Enterprise Network Architecture:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Building 2-tier VPC, public/private subnets, NAT Gateway routing, and VPC peering connections.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold">EXP 10</span>
+                <div>
+                  <strong class="text-zinc-200">Cloud Infrastructure Observability:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Amazon CloudWatch custom metrics, SNS alarm triggers, dashboard widgets, and CloudTrail forensic audits.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           PANEL 3: SERVER ADMINISTRATION (CSC204)
+           ====================================================================== -->
+      <div id="syllabusPanel_server" class="space-y-6 hidden">
+        <!-- Course Header Specs & Outcomes -->
+        <div class="bg-zinc-950/80 rounded-xl p-4 md:p-5 border border-zinc-800 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 pb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold font-mono bg-purple-500/20 text-purple-400 border border-purple-500/30">CSC204</span>
+              <h3 class="text-sm font-bold text-white">Server Administration &amp; Enterprise Infrastructure</h3>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-mono text-zinc-400">
+              <span>Credits: <strong class="text-purple-400">04</strong></span>
+              <span>•</span>
+              <span>Theory: <strong>45 Lecture Hours</strong></span>
+              <span>•</span>
+              <span>Practicals: <strong>10 Mandated Labs</strong></span>
+            </div>
+          </div>
+          <!-- Course Outcomes Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 text-[11px] font-mono">
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-purple-400 font-bold">CO1 (Remember):</span> Identify server chassis, NUMA multi-socket &amp; ECC architectures</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-purple-400 font-bold">CO2 (Apply):</span> Deploy Windows Server/RHEL &amp; Type-1 bare-metal hypervisors</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-purple-400 font-bold">CO3 (Analyze):</span> Configure Active Directory DS, DNS, DHCP &amp; Failover Clusters</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-purple-400 font-bold">CO4 (Evaluate):</span> Sizing DAS/NAS/SAN storage, hardware RAID &amp; write penalty</div>
+            <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800/80"><span class="text-purple-400 font-bold">CO5 (Evaluate):</span> Implement PKI, CIS server hardening &amp; bare-metal disaster recovery</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left: 6 Units Theory Syllabus -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-purple-400 font-mono flex items-center justify-between">
+              <span>📖 Theory Syllabus (6 Units • 30 Topics)</span>
+              <a href="Server_Administration_Portal/index.html" class="text-[11px] text-zinc-400 hover:text-purple-400 transition font-normal">Launch Portal &rarr;</a>
+            </h4>
+            <div class="space-y-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 1: Server Hardware &amp; Subsystems</span>
+                  <span class="text-purple-400 font-mono text-[10px]">Topics 01–05</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Rack, blade &amp; tower chassis, Out-of-Band BMC (iDRAC/iLO), multi-socket NUMA bus topology, multi-channel ECC registered RAM, PCIe 5.0 risers, OCP 3.0 mezzanine, and 2N redundant power.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 2: Server Installation &amp; Virtualization</span>
+                  <span class="text-purple-400 font-mono text-[10px]">Topics 06–10</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Automated unattended installations (WDS, Kickstart), GPT vs MBR, ReFS vs XFS filesystems, Type-1 bare-metal hypervisors (ESXi, KVM), hypervisor memory ballooning, and vSwitch VLAN trunking.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 3: Server Roles &amp; High Availability</span>
+                  <span class="text-purple-400 font-mono text-[10px]">Topics 11–15</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">Active Directory DS &amp; 5 FSMO roles, DNS zones &amp; records, DHCP failover clustering, IIS worker processes vs NGINX, WSUS patching pipelines, and Windows Server Failover Clustering (WSFC).</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 4: Storage Technologies &amp; RAID Architecture</span>
+                  <span class="text-purple-400 font-mono text-[10px]">Topics 16–20</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">DAS vs NAS vs SAN topologies, iSCSI initiator/target, Fibre Channel (FC), Hardware RAID 0/1/5/6/10 with XOR math, RAID write penalty formula, IOPS sizing, and Storage Spaces Direct (S2D).</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 5: Server Hardening, PKI &amp; Security</span>
+                  <span class="text-purple-400 font-mono text-[10px]">Topics 21–25</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">CIS security benchmarks, Group Policy Objects (GPO), Active Directory Certificate Services (AD CS) PKI, Kerberos ticket exchange, host firewalls, BitLocker/LUKS2 encryption, and SIEM forwarding.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                <div class="flex items-center justify-between font-bold text-zinc-200">
+                  <span>Unit 6: Networking, Disaster Recovery &amp; Triage</span>
+                  <span class="text-purple-400 font-mono text-[10px]">Topics 26–30</span>
+                </div>
+                <p class="text-zinc-400 text-[11px] leading-relaxed">NIC Teaming &amp; LACP link aggregation, enterprise port matrix, Disaster Recovery RTO/RPO models, 3-2-1 backup topology, VSS shadow copies, and kernel panic/BSOD memory dump analysis.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 10 Practical Experiments -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-purple-400 font-mono flex items-center justify-between">
+              <span>🔬 10 Mandated Laboratory Practicals</span>
+              <a href="Server_Administration_Portal/index.html#server-labs-manual" class="text-[11px] text-zinc-400 hover:text-purple-400 transition font-normal">View Interactive Lab &rarr;</a>
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 01</span>
+                <div>
+                  <strong class="text-zinc-200">Server OS Installation:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Bare-metal &amp; virtualized deployment of Windows Server 2022 / RHEL 9 with storage volume partitioning.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 02</span>
+                <div>
+                  <strong class="text-zinc-200">BIOS/UEFI &amp; BMC Firmware Hardening:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Out-of-band management configuration (iDRAC/iLO), remote KVM virtual media, and firmware flashing.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 03</span>
+                <div>
+                  <strong class="text-zinc-200">Enterprise Hardware Provisioning:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Installing multi-channel ECC RDIMMs, SAS/SATA hot-swap backplanes, PCIe NVMe risers &amp; redundant PSUs.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 04</span>
+                <div>
+                  <strong class="text-zinc-200">RAID Array Configuration &amp; Fault Testing:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Building RAID 1 mirror &amp; RAID 5 parity arrays, simulating disk failure, hot-spare rebuild &amp; verification.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 05</span>
+                <div>
+                  <strong class="text-zinc-200">Enterprise Networking &amp; DNS/DHCP:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Static TCP/IP configuration, forward/reverse DNS lookup zones, DHCP scope configuration &amp; failover partner.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 06</span>
+                <div>
+                  <strong class="text-zinc-200">Active Directory Domain Services (AD DS):</strong>
+                  <span class="text-zinc-400 text-[11px]"> Promoting domain controller, creating OUs, user templates, security groups, and Kerberos validation.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 07</span>
+                <div>
+                  <strong class="text-zinc-200">Type-1 Hypervisor Virtualization:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Deploying Hyper-V / KVM, configuring virtual switches (vSwitch), VLAN tagging, and VM provisioning.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 08</span>
+                <div>
+                  <strong class="text-zinc-200">Performance Monitoring &amp; Bottleneck Analysis:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Using Performance Monitor (perfmon), Task Manager, resource counters, and Event Viewer diagnostic logs.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 09</span>
+                <div>
+                  <strong class="text-zinc-200">Disaster Recovery &amp; System Backup:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Windows Server Backup, VSS volume shadow copy snapshots, Bare Metal Recovery (BMR), and restore testing.</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800/90 flex items-start gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 font-mono text-[10px] font-bold">EXP 10</span>
+                <div>
+                  <strong class="text-zinc-200">Server Security Hardening &amp; GPO Baselines:</strong>
+                  <span class="text-zinc-400 text-[11px]"> Applying CIS benchmark Group Policy Objects, disabling vulnerable protocols, and BitLocker drive encryption.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -345,6 +837,28 @@
   </footer>
 
   <script>
+    
+    function switchSyllabusTab(subject) {
+      const subjects = ['it', 'cloud', 'server'];
+      subjects.forEach(s => {
+        const panel = document.getElementById(`syllabusPanel_${s}`);
+        const btn = document.getElementById(`tabBtn_${s}`);
+        if (panel && btn) {
+          if (s === subject) {
+            panel.classList.remove('hidden');
+            btn.className = s === 'it' 
+              ? 'px-3.5 py-1.5 rounded-lg font-bold transition text-emerald-400 bg-emerald-500/10 border border-emerald-500/30'
+              : s === 'cloud'
+              ? 'px-3.5 py-1.5 rounded-lg font-bold transition text-cyan-400 bg-cyan-500/10 border border-cyan-500/30'
+              : 'px-3.5 py-1.5 rounded-lg font-bold transition text-purple-400 bg-purple-500/10 border border-purple-500/30';
+          } else {
+            panel.classList.add('hidden');
+            btn.className = 'px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition';
+          }
+        }
+      });
+    }
+
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('cu_master_theme', theme);

@@ -73,13 +73,10 @@ d:\CU - Teach\
 │   ├── assemble_cloud_portal_master.py        # Master Cloud Portal Compiler
 │   └── assemble_server_portal_master.py       # Master Server Portal Compiler
 │
-└── [Curricular Source Documents]              # Official Course Syllabus PDFs & Course PPTXs
-    ├── IT Fundamentals (Lecture Plan).pdf
-    ├── IT_Fundamentals_CommandCheatSheet.pdf
-    ├── Cloud Administration (Lesson Plan).pdf
-    ├── Cloud Administration.docx
-    ├── Server Administration (Lesson Plan).pdf
-    └── Server Administration.docx
+└── [Syllabi & Practical Lists]                # Built directly into index.html dashboard
+    ├── IT Fundamentals (5 Units Theory + 10 Mandated Practicals)
+    ├── Cloud Administration (6 Units Theory + 10 Enterprise Practicals)
+    └── Server Administration (6 Units Theory + 10 Enterprise Practicals)
 ```
 
 ---
